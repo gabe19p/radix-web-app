@@ -1,0 +1,11 @@
+<nav class="top-nav">
+  <div class="logo">Radix</div>
+
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+
+  <ul [class.open]="menuOpen" class="nav-links">
+    <li><a routerLink="/">Who We Are</a></li>
+    <li><a routerLink="/about">What We Do</a></li>
+    <li><a routerLink="/contact">Careers</a></li>
+  </ul>
+</nav>
