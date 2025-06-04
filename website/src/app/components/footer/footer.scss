@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  padding: var(--spacing-md);
+  background-color: var(--color-bg-secondary);
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: var(--spacing-sm);
+}
+
+.footer-column {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .footer-row {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    padding: var(--spacing-md);
+  }
+}

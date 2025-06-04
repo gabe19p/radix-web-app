@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  cursor: default;
 
   .logo {
     font-size: 1.5rem;
@@ -21,7 +22,6 @@
     border: none;
     font-size: 1.5rem;
     color: var(--color-text);
-    cursor: pointer;
   }
 
   .nav-links {
@@ -32,9 +32,11 @@
     a {
       color: var(--color-text);
       text-decoration: none;
+      transition: color 0.3s ease-in-out;
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: var(--color-primary);
       }
     }
   }
