@@ -1,11 +1,11 @@
 <nav class="top-nav">
-  <div class="logo">Radix Metasystems</div>
+  <div class="logo" [routerLink]="'/home'">Radix Metasystems</div>
 
   <button class="menu-toggle" (click)="toggleMenu()">☰</button>
 
   <ul [class.open]="menuOpen" class="nav-links">
-    <li><a routerLink="/">Who We Are</a></li>
-    <li><a routerLink="/about">What We Do</a></li>
-    <li><a routerLink="/contact">Careers</a></li>
+    <li><a [routerLink]="'/who-we-are'">Who We Are</a></li>
+    <li><a [routerLink]="'/what-we-do'">What We Do</a></li>
+    <li><a [routerLink]="'/radix-careers'">Careers</a></li>
   </ul>
 </nav>
