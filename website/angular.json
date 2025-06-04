@@ -23,6 +23,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/assets/models",
               "src/assets/favicon.png",
               {
                 "glob": "**/*",
@@ -78,6 +79,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
+              "src/assets/models",
               "src/assets/favicon.png",
               {
                 "glob": "**/*",

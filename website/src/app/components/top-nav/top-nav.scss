@@ -8,12 +8,12 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  cursor: default;
 
   .logo {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
-    cursor: pointer;
   }
 
   .menu-toggle {
@@ -22,7 +22,6 @@
     border: none;
     font-size: 1.5rem;
     color: var(--color-text);
-    cursor: pointer;
   }
 
   .nav-links {
@@ -38,7 +37,6 @@
       &:hover {
         text-decoration: none;
         color: var(--color-primary);
-        cursor: pointer;
       }
     }
   }
