@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* Import the Sora font */
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;300;500;700;900&display=swap");
 
 /* Theme Variables */
 :root {
@@ -11,13 +11,18 @@
   --font-lg: 1.25rem;
   --font-xl: 2rem;
   font-family: var(--font-base);
+  --font-weight-xs: 100;
+  --font-weight-sm: 300;
+  --font-weight-md: 500;
+  --font-weight-lg: 700;
+  --font-weight-xl: 900;
 
   /* Colors - Light Theme */
-  --color-bg: #ffffff;
-  --color-bg-secondary: #b8cdeb;
-  --color-text: #111111;
+  --color-bg: #000000;
+  --color-bg-secondary: #29303a;
+  --color-text: #f1f5f9;
   --color-primary: #ff6b00;
-  --color-secondary: #64748b;
+  --color-secondary: #94a3b8;
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -35,12 +40,12 @@
   --container-padding: var(--spacing-lg);
 }
 
-/* Optional: Dark Theme Override */
-.dark-theme {
-  --color-bg: #111827;
-  --color-bg-secondary: #64748b;
-  --color-text: #f1f5f9;
-  --color-primary: #6366f1;
+/* Optional: Light Theme Override */
+.light-theme {
+  --color-bg: #ffffff;
+  --color-bg-secondary: #b8cdeb;
+  --color-text: #111111;
+  --color-primary: #ff6b00;
   --color-secondary: #94a3b8;
 }
 
