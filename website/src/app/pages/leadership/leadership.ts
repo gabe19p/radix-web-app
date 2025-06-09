@@ -50,7 +50,7 @@ export class Leadership implements AfterViewInit {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: card.nativeElement,
-          start: 'top 80%',
+          start: 'top 95%',
           toggleActions: 'play none none none',
         },
         delay: index * 0.1,
