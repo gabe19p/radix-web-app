@@ -1,16 +1,28 @@
 <div class="container">
-  <!-- ng for each leadership in the TS -->
-  <div class="leader-wrapper">
-    <div class="leader-image">
-      <img src="../../../assets/headshots/headshot-pete.png" alt="head shot" />
-    </div>
-    <div class="leader-text">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-        earum asperiores cum. Asperiores sed quasi voluptatibus possimus itaque.
-        Sunt accusamus veniam soluta aliquam ullam. Obcaecati, incidunt. Totam
-        quidem odio sint!
-      </p>
+  <!-- page title -->
+  <h1>meet the team</h1>
+
+  <div class="leader-grid">
+    <div
+      class="leader-wrapper"
+      #card
+      *ngFor="let person of leaders"
+      (click)="openModal(person)"
+    >
+      <div class="image-wrapper">
+        <img [src]="person.image" [alt]="person.name" />
+        <div class="overlay">
+          <h3>{{ person.name }}</h3>
+          <p>{{ person.title }}</p>
+        </div>
+      </div>
     </div>
   </div>
+
+  <app-leader-modal
+    *ngIf="selectedLeader"
+    [leader]="selectedLeader"
+    (closeModal)="closeModal()"
+  >
+  </app-leader-modal>
 </div>

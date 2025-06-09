@@ -1,0 +1,11 @@
+<div class="modal-backdrop" (click)="close()"></div>
+
+<div #modal class="modal" role="dialog" aria-modal="true">
+  <button class="close-button" (click)="close()">×</button>
+  <div class="modal-content">
+    <img [src]="leader.image" [alt]="leader.name" />
+    <h2>{{ leader.name }}</h2>
+    <h4>{{ leader.title }}</h4>
+    <p>{{ leader.bio }}</p>
+  </div>
+</div>
