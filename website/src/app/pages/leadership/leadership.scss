@@ -1,0 +1,67 @@
+.leader-grid {
+  display: grid;
+  gap: 2rem;
+
+  grid-template-columns: repeat(1, 1fr); // default mobile
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr); // tablet
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); // desktop
+  }
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-text);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    h3,
+    p {
+      margin: 0;
+      padding: 0.25rem 0;
+    }
+  }
+
+  // Show overlay on hover (desktop)
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  // Mobile override: show details *below* image
+  @media (max-width: 599px) {
+    .overlay {
+      position: static;
+      background-color: transparent;
+      color: var(--color-text);
+      opacity: 1;
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+
+    &:hover .overlay {
+      opacity: 1; // keep it visible
+    }
+  }
+}
