@@ -60,35 +60,40 @@ export class Leadership implements AfterViewInit {
 
   leaders = [
     {
-      name: 'Jane Doe',
-      title: 'CEO',
+      name: 'Pete Molina',
+      title: 'CEO/CFO',
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
-      name: 'John Smith',
-      title: 'CTO',
+      name: 'Mike Kritenbrink',
+      title: 'VP of Operations',
       image: '../../../assets/headshots/headshot-pete.png',
+      bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
-      name: 'Emily Zhang',
-      title: 'COO',
+      name: 'Ricky Kee',
+      title: 'Director of Corporate Operations',
       image: '../../../assets/headshots/headshot-pete.png',
+      bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
-      name: 'Carlos Ruiz',
-      title: 'CFO',
+      name: 'Roger Altobelli',
+      title: 'Director of Solutions',
       image: '../../../assets/headshots/headshot-pete.png',
+      bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
-      name: 'Mina Patel',
-      title: 'CMO',
+      name: 'Charlie Smith',
+      title: 'Director of Technology & Innovation',
       image: '../../../assets/headshots/headshot-pete.png',
+      bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
-      name: 'Samir Khan',
-      title: 'CIO',
+      name: 'Amanda Smith',
+      title: 'Director of Security & Chief of Facility',
       image: '../../../assets/headshots/headshot-pete.png',
+      bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
   ];
 

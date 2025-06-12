@@ -1,0 +1,10 @@
+.globe {
+  background-image: url(../../../assets/globe.webp);
+  background-repeat: no-repeat;
+  background-size: cover; // scales image to fill container
+  background-position: center; // centers the image
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
