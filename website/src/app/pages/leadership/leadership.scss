@@ -1,15 +1,3 @@
-// .leader-wrapper {
-//   display: flex;
-//   opacity: 0;
-//   transform: translateY(30px);
-//   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-//   &.visible {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
 .leader-grid {
   display: grid;
   gap: 2rem;
@@ -44,9 +32,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: rgba(0, 0, 0, 0.6);
-    color: white;
+    color: var(--color-text);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 
@@ -62,7 +49,7 @@
     opacity: 1;
   }
 
-  // 🟡 Mobile override: show details *below* image
+  // Mobile override: show details *below* image
   @media (max-width: 599px) {
     .overlay {
       position: static;
