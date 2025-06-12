@@ -5,13 +5,13 @@
 
   <ul [class.open]="menuOpen" class="nav-links">
     <li>
-      <a [routerLink]="'/who-we-are'" (click)="toggleMenu()">Who We Are</a>
+      <a [routerLink]="'/who-we-are'" (click)="closeMenu()">Who We Are</a>
     </li>
     <li>
-      <a [routerLink]="'/what-we-do'" (click)="toggleMenu()">What We Do</a>
+      <a [routerLink]="'/what-we-do'" (click)="closeMenu()">What We Do</a>
     </li>
     <li>
-      <a [routerLink]="'/radix-careers'" (click)="toggleMenu()">Careers</a>
+      <a [routerLink]="'/radix-careers'" (click)="closeMenu()">Careers</a>
     </li>
   </ul>
 </nav>

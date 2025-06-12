@@ -144,7 +144,7 @@ $breakpoint-lg: 1024px;
       font-size: var(--font-xl);
       font-weight: var(--font-weight-lg);
       text-shadow: 0 5px 50px var(--color-bg);
-      padding-top: 35%;
+      padding-top: 10rem;
     }
   }
 
@@ -165,7 +165,13 @@ $breakpoint-lg: 1024px;
   }
 }
 
-.fade-separator {
+.fade-separator-down {
   height: 50px;
   background: linear-gradient(to bottom, transparent, var(--color-bg));
+}
+
+.fade-separator-up {
+  height: 50px;
+  z-index: 10;
+  background: linear-gradient(to top, transparent, var(--color-bg));
 }

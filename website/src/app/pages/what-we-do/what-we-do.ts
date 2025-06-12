@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export class WhatWeDo implements AfterViewInit {
   ngAfterViewInit(): void {
     gsap.to('.banner-image', {
-      yPercent: 30,
+      yPercent: 40,
       ease: 'none',
       scrollTrigger: {
         trigger: '.banner',

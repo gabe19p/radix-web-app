@@ -14,4 +14,8 @@ export class TopNav {
     // set the menuOpen variable to whatever it isn't
     this.menuOpen = !this.menuOpen;
   }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 }
