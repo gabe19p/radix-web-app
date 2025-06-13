@@ -19,6 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './leadership.scss',
 })
 export class Leadership implements AfterViewInit {
+  @ViewChildren('panel') panels!: QueryList<ElementRef>;
   @ViewChildren('card') cards!: QueryList<ElementRef>;
 
   selectedLeader: any = null;
@@ -42,6 +43,21 @@ export class Leadership implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.panels.forEach((panel, index) => {
+      gsap.from(panel.nativeElement, {
+        x: 300,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: panel.nativeElement,
+          start: 'top 95%',
+          toggleActions: 'play none none none',
+        },
+        delay: index * 0.1,
+      });
+    });
+
     this.cards.forEach((card, index) => {
       gsap.from(card.nativeElement, {
         y: 300,
@@ -71,27 +87,30 @@ export class Leadership implements AfterViewInit {
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
+  ];
+
+  subleaders = [
     {
       name: 'Ricky Kee',
-      title: 'Director of Corporate Operations',
+      title: 'Corporate Operations',
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
       name: 'Roger Altobelli',
-      title: 'Director of Solutions',
+      title: 'Solutions',
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
       name: 'Charlie Smith',
-      title: 'Director of Technology & Innovation',
+      title: 'Technology & Innovation',
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },
     {
       name: 'Amanda Smith',
-      title: 'Director of Security & Chief of Facility',
+      title: 'Security & Chief of Facility',
       image: '../../../assets/headshots/headshot-pete.png',
       bio: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque sint deleniti eum debitis laudantium praesentium eius iste voluptate ipsa consectetur minus officiis, id dignissimos voluptates quibusdam necessitatibus quod voluptatibus saepe!`,
     },

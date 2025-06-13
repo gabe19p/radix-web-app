@@ -2,12 +2,13 @@ import { AfterViewInit, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { Leadership } from '../leadership/leadership';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-who-we-are',
-  imports: [RouterModule],
+  imports: [RouterModule, Leadership],
   templateUrl: './who-we-are.html',
   styleUrl: './who-we-are.scss',
 })
