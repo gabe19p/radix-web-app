@@ -10,5 +10,5 @@ import { Footer } from './components/footer/footer';
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'website';
+  protected title = 'Radix Metasystems';
 }

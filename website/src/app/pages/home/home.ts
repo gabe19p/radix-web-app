@@ -19,39 +19,57 @@ export class Home implements AfterViewInit {
 
   @ViewChild('sloganText', { static: true }) sloganText!: ElementRef;
 
-  ngOnInit() {
-    setInterval(() => {
-      const el = this.sloganText.nativeElement;
+  ngAfterViewInit(): void {
+    const panels = document.querySelectorAll('.panel .content');
 
-      // Fade out
-      gsap.to(el, {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: () => {
-          // Update text
-          this.currentIndex = (this.currentIndex + 1) % this.slogans.length;
-          this.currentSlogan = this.slogans[this.currentIndex];
-
-          // Fade in
-          gsap.to(el, {
-            opacity: 1,
-            duration: 0.5,
-          });
+    panels.forEach((content) => {
+      gsap.to(content, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: content,
+          start: 'top 80%',
+          end: 'bottom 60%',
+          toggleActions: 'play none none reverse',
         },
       });
-    }, 4000);
-  }
-
-  ngAfterViewInit(): void {
-    gsap.to('.banner-image', {
-      yPercent: 40,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.banner',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
     });
   }
+  // ngOnInit() {
+  //   setInterval(() => {
+  //     const el = this.sloganText.nativeElement;
+
+  //     // Fade out
+  //     gsap.to(el, {
+  //       opacity: 0,
+  //       duration: 0.5,
+  //       onComplete: () => {
+  //         // Update text
+  //         this.currentIndex = (this.currentIndex + 1) % this.slogans.length;
+  //         this.currentSlogan = this.slogans[this.currentIndex];
+
+  //         // Fade in
+  //         gsap.to(el, {
+  //           opacity: 1,
+  //           duration: 0.5,
+  //         });
+  //       },
+  //     });
+  //   }, 4000);
+  // }
+
+  // ngAfterViewInit(): void {
+  //   gsap.to('.banner-image', {
+  //     yPercent: 40,
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: '.banner',
+  //       start: 'top top',
+  //       end: 'bottom top',
+  //       scrub: true,
+  //     },
+  //   });
+  // }
 }
