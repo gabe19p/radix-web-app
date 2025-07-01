@@ -177,8 +177,6 @@ export class WhatWeDo implements AfterViewInit {
         start: 'top 70%',
       },
     });
-
-    // Step 1: Animate title
     disciplinesTl.to('#disciplines', {
       duration: 1,
       scrambleText: {
@@ -199,6 +197,26 @@ export class WhatWeDo implements AfterViewInit {
       { y: 0, opacity: 1 },
       '>' // Start after scrambleText
     );
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.cta-wrapper',
+          start: 'top 50%',
+        },
+      })
+      .from('.cta-title', {
+        y: -50,
+        duration: 1,
+        opacity: 0,
+        ease: 'power1.inOut',
+      })
+      .from('.button-wrapper', {
+        y: 50,
+        duration: 1,
+        opacity: 0,
+        ease: 'power1.inOut',
+      });
 
     // Shapes for blobA
     const shapesA = [

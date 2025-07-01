@@ -13,6 +13,6 @@ export const routes: Routes = [
     component: WhoWeAre,
   },
   { path: 'what-we-do', component: WhatWeDo },
-  { path: 'radix-careers', component: Careers },
+  { path: 'careers', component: Careers },
   { path: 'who-we-are/leadership', component: Leadership },
 ];
