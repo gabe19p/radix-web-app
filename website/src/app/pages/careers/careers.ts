@@ -1,25 +1,14 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-careers',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './careers.html',
   styleUrl: './careers.scss',
 })
-export class Careers implements AfterViewInit {
-  ngAfterViewInit(): void {
-    gsap.to('.banner-image', {
-      yPercent: 40,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.banner',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
-  }
-}
+export class Careers {}

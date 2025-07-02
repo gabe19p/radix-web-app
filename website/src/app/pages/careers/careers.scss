@@ -1,0 +1,149 @@
+section {
+  padding: var(--spacing-lg) 0;
+}
+
+.careers-hero {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .hero-wrapper {
+    transform: translateY(-20%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    h1 {
+      color: var(--color-text);
+      font-size: var(--font-xxl);
+    }
+
+    p {
+      font-size: var(--font-xl);
+    }
+  }
+}
+
+.careers-culture {
+  background-color: var(--color-text);
+  padding: var(--spacing-xxl) 0;
+  color: var(--color-bg-secondary);
+  box-shadow: 0 0 10px black;
+  height: 80vh;
+
+  .carousel-wrapper {
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .carousel-item {
+    }
+  }
+}
+
+.careers-benefits {
+  padding: var(--spacing-xxl) 0;
+  display: flex;
+
+  .benefits-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    .benefits-title {
+      color: var(--color-primary);
+      font-size: var(--font-xxl);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+      color: var(--color-text);
+      .benefit {
+        padding: var(--spacing-md);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-sm);
+
+        .sphere {
+          width: var(--spacing-xxl);
+          height: var(--spacing-xxl);
+          border-radius: 50%;
+          background: var(--color-text);
+          transition: scale 0.3s ease-in-out;
+        }
+
+        .sphere:hover {
+          cursor: pointer;
+          scale: 1.1;
+        }
+      }
+    }
+  }
+}
+
+.careers-life {
+  background-color: var(--color-text);
+  padding: var(--spacing-xxl) 0;
+  color: var(--color-bg-secondary);
+  box-shadow: 0 0 10px black;
+  height: 50vh;
+}
+
+.careers-cta {
+  padding: 0;
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  display: flex;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.3;
+  }
+
+  .cta-wrapper {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    text-align: center;
+    color: var(--color-text);
+
+    .cta-title {
+      text-align: center;
+      font-size: var(--font-xxl);
+      margin: var(--spacing-lg);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background-color: var(--color-primary);
+      color: var(--color-text);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+}
