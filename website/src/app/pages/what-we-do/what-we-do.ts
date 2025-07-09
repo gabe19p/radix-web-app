@@ -5,6 +5,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
 import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
+import { Footer } from '../../components/footer/footer';
+import { TopNav } from '../../components/top-nav/top-nav';
 
 gsap.registerPlugin(
   MorphSVGPlugin,
@@ -15,7 +17,7 @@ gsap.registerPlugin(
 
 @Component({
   selector: 'app-what-we-do',
-  imports: [],
+  imports: [Footer, TopNav],
   templateUrl: './what-we-do.html',
   styleUrl: './what-we-do.scss',
 })

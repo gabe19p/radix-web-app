@@ -3,12 +3,14 @@ import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Leadership } from '../leadership/leadership';
+import { TopNav } from '../../components/top-nav/top-nav';
+import { Footer } from '../../components/footer/footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-who-we-are',
-  imports: [RouterModule, Leadership],
+  imports: [RouterModule, Leadership, TopNav, Footer],
   templateUrl: './who-we-are.html',
   styleUrl: './who-we-are.scss',
 })
