@@ -2,6 +2,163 @@ section {
   padding: var(--spacing-lg) 0;
 }
 
+.hero {
+  transform: translateY(-8vh);
+  height: 110vh;
+  width: 100vw;
+  background-color: var(--color-bg);
+
+  .hero-wrapper {
+    filter: brightness(0.5);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--spacing-xxl) 0;
+
+    h1 {
+      color: var(--color-font);
+      font-size: 10rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      max-width: 500px;
+    }
+  }
+
+  .three {
+    width: 100%;
+    aspect-ratio: 1.5; // adjusts height based on width — you can tweak
+    position: absolute;
+    top: 0;
+    z-index: 10;
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  }
+}
+
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: var(--spacing-md) 0;
+  z-index: 0;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.domain-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px; // fallback
+  box-shadow: 0 0 8px -5px var(--color-primary);
+  transition: box-shadow 0.3s ease-in-out;
+
+  @supports (aspect-ratio: 1) {
+    aspect-ratio: 3 / 2;
+    height: auto; // override fallback height
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.8s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover {
+    box-shadow: 0 0 12px -7px var(--color-primary);
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  .domain-text {
+    font-weight: var(--font-weight-sm);
+    font-size: var(--font-lg);
+    color: var(--color-text);
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-primary);
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--color-primary);
+
+      &::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+    }
+  }
+
+  @media (max-width: 599px) {
+    .overlay {
+      background: none;
+      opacity: 1;
+      padding-top: var(--spacing-sm);
+    }
+
+    .domain-text {
+      position: static;
+      opacity: 1;
+      text-align: center;
+      padding: var(--spacing-sm);
+    }
+
+    &:hover img {
+      transform: none;
+    }
+  }
+}
+
 .what-we-do-hero {
   position: relative;
   width: 100%;
