@@ -71,12 +71,12 @@ html,
 body {
   font-family: var(--font-base);
   color: var(--color-text-secondary);
-  // background-color: var(--color-bg);
-  // background: linear-gradient(
-  //   0deg,
-  //   var(--color-bg-secondary) 0%,
-  //   var(--color-bg) 100%
-  // );
+  background-color: var(--color-bg);
+  background: linear-gradient(
+    0deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg) 100%
+  );
   min-height: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;

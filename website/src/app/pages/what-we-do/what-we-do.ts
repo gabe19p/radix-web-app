@@ -17,7 +17,7 @@ gsap.registerPlugin(
 
 @Component({
   selector: 'app-what-we-do',
-  imports: [Footer, TopNav],
+  imports: [Footer],
   templateUrl: './what-we-do.html',
   styleUrl: './what-we-do.scss',
 })
@@ -172,53 +172,6 @@ export class WhatWeDo implements AfterViewInit {
         },
         '+=0.2'
       ); // slight pause after title
-
-    const disciplinesTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.what-we-do-disciplines',
-        start: 'top 70%',
-      },
-    });
-    disciplinesTl.to('#disciplines', {
-      duration: 1,
-      scrambleText: {
-        text: 'Our Disciplines ',
-        chars: '01 ',
-        revealDelay: 0.1,
-        speed: 0.3,
-      },
-    });
-    disciplinesTl.fromTo(
-      '.disciplines-list',
-      {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-      },
-      { y: 0, opacity: 1 },
-      '>' // Start after scrambleText
-    );
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.cta-wrapper',
-          start: 'top 50%',
-        },
-      })
-      .from('.cta-title', {
-        y: -50,
-        duration: 1,
-        opacity: 0,
-        ease: 'power1.inOut',
-      })
-      .from('.button-wrapper', {
-        y: 50,
-        duration: 1,
-        opacity: 0,
-        ease: 'power1.inOut',
-      });
 
     // Shapes for blobA
     const shapesA = [

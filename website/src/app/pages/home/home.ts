@@ -3,12 +3,9 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-import { Footer } from '../../components/footer/footer';
-import { TopNav } from '../../components/top-nav/top-nav';
-
 @Component({
   selector: 'app-home',
-  imports: [Footer, TopNav],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

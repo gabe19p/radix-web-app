@@ -55,24 +55,6 @@ section {
   }
 }
 
-.what-we-do-mission {
-  background-color: var(--color-text);
-  padding: var(--spacing-xxl) 0;
-  color: var(--color-bg-secondary);
-  box-shadow: 0 0 10px black;
-
-  .mission-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-
-  #mission-paragraph {
-    opacity: 0;
-    transform: translateY(40px); // fallback for users without JS
-  }
-}
-
 .what-we-do-capabilities {
   height: 100vh;
   padding: var(--spacing-xxl) 0;
@@ -85,7 +67,7 @@ section {
     justify-content: center;
     gap: var(--spacing-xl);
 
-    .capabilites-title {
+    .capabilities-title {
       color: var(--color-primary);
       font-size: var(--font-xxl);
       // font-family: var(--font-alt);
@@ -134,61 +116,6 @@ section {
     .sphere:hover {
       cursor: pointer;
       scale: 1.1;
-    }
-  }
-}
-
-.what-we-do-disciplines {
-  background-color: var(--color-text);
-  padding: var(--spacing-xxl) 0;
-  color: var(--color-bg-secondary);
-  box-shadow: 0 0 10px black;
-
-  .disciplines-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-
-    .disciplines-list {
-      opacity: 0;
-      transform: translateY(40px);
-
-      .discipline-group {
-        margin-bottom: 1rem;
-        border-bottom: 1px solid var(--color-secondary);
-
-        .discipline-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          cursor: pointer;
-
-          h3 {
-            font-family: var(--font-base);
-            margin: 0;
-          }
-
-          .carrot {
-            transition: transform 0.3s ease;
-            font-size: 1.5rem;
-          }
-
-          &.open .carrot {
-            transform: rotate(90deg);
-          }
-        }
-
-        .sub-items {
-          overflow: hidden;
-          height: 0;
-          opacity: 0;
-          transition: none;
-          display: flex;
-          flex-direction: column;
-          gap: var(--spacing-sm);
-          padding: var(--spacing-sm) var(--spacing-md);
-        }
-      }
     }
   }
 }
