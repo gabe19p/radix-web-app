@@ -1,63 +1,79 @@
-<section class="who-we-are-hero">
-  <div class="hero-wrapper container">
-    <h1 class="hero-title">
-      <div id="heroText">Build the Future. Secure the Nation</div>
-    </h1>
-    <p>
-      At Radix, your expertise supports critical systems that power national
-      security.
-    </p>
-  </div>
-</section>
-
-<section class="who-we-are-vision">
-  <div class="vision-wrapper container">
-    <div class="vision-statement">
-      <h1><span id="vision">Our Vision</span></h1>
-      <p id="vision-paragraph">
-        To be the leader of next generation intelligence and defense solutions,
-        delivering capabilities that outclass our adversaries across all
-        domains.
-      </p>
+<div class="full-page" id="full-page" #fullPage>
+  <canvas id="bg-three" #bgThree></canvas>
+  <section class="who-we-are-hero">
+    <div class="hero-wrapper container-lg">
+      <h1 class="hero-title">
+        <div id="heroText">The Missing Piece to the Mission</div>
+      </h1>
     </div>
+  </section>
 
-    <span>
-      <svg
-        id="Satellites_24"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <rect stroke="none" fill="#000000" opacity="0" />
+  <section class="who-we-are-mission">
+    <div class="mission-wrapper container-sm">
+      <div class="mission-statement">
+        <h1><span id="mission">Our Mission</span></h1>
+        <p id="mission-paragraph">
+          Be the force multiplier equipping policymakers and warfighters with
+          cutting-edge tools, technologies, and techniques—where intelligent
+          engineering is our edge, innovation is our strength, and our team
+          shapes the digital battlespace.
+        </p>
+      </div>
+      <canvas
+        class="support-graphic"
+        id="mission-graphic"
+        #missionGraphic
+      ></canvas>
+    </div>
+  </section>
 
-        <g transform="matrix(0.42 0 0 0.42 12 12)">
-          <path
-            style="
-              stroke: none;
-              stroke-width: 1;
-              stroke-dasharray: none;
-              stroke-linecap: butt;
-              stroke-dashoffset: 0;
-              stroke-linejoin: miter;
-              stroke-miterlimit: 4;
-              fill: rgb(0, 0, 0);
-              fill-rule: nonzero;
-              opacity: 1;
-            "
-            transform=" translate(-25, -25.34)"
-            d="M 15.65625 3.53125 C 15.210938 3.53125 14.8125 3.59375 14.40625 3.6875 C 14.945313 4.128906 15.339844 4.730469 15.5625 5.40625 C 15.597656 5.40625 15.621094 5.375 15.65625 5.375 C 17.878906 5.375 20.90625 6.800781 24 9.28125 C 22.53125 10.726563 21.0625 12.410156 19.65625 14.28125 C 16.96875 14.554688 14.460938 15.015625 12.21875 15.65625 C 11.824219 13.589844 11.703125 11.742188 11.84375 10.21875 C 11.191406 10.175781 10.578125 9.964844 10.0625 9.625 C 9.832031 11.515625 9.945313 13.75 10.4375 16.21875 C 4.71875 18.210938 1.0625 21.375 1.0625 25 C 1.0625 28.625 4.71875 31.789063 10.4375 33.78125 C 9.277344 39.5625 10.078125 44.09375 13 45.78125 C 13.476563 46.058594 14.003906 46.234375 14.5625 46.34375 C 14.453125 46.019531 14.375 45.671875 14.375 45.3125 C 14.375 45.003906 14.449219 44.71875 14.53125 44.4375 C 14.320313 44.371094 14.121094 44.292969 13.9375 44.1875 C 11.953125 43.042969 11.0625 39.292969 11.8125 34.21875 C 14.160156 34.921875 16.808594 35.429688 19.65625 35.71875 C 20.953125 37.445313 22.300781 39.007813 23.65625 40.375 C 22.410156 41.5 21.175781 42.460938 20 43.15625 C 20.40625 43.609375 20.683594 44.183594 20.78125 44.8125 C 22.144531 44.023438 23.554688 42.933594 24.96875 41.65625 C 28.300781 44.6875 31.632813 46.46875 34.34375 46.46875 C 35.332031 46.46875 36.21875 46.234375 37 45.78125 C 39.921875 44.09375 40.691406 39.5625 39.53125 33.78125 C 40.199219 33.550781 40.828125 33.292969 41.4375 33.03125 C 40.976563 32.660156 40.640625 32.191406 40.4375 31.625 C 40.03125 31.789063 39.589844 31.941406 39.15625 32.09375 C 38.585938 29.851563 37.753906 27.464844 36.65625 25 C 37.839844 22.351563 38.742188 19.792969 39.3125 17.40625 C 44.109375 19.382813 47.21875 22.21875 47.21875 25 C 47.21875 26.140625 46.695313 27.230469 45.75 28.25 C 46.164063 28.664063 46.453125 29.191406 46.59375 29.78125 C 48.078125 28.339844 48.9375 26.730469 48.9375 25 C 48.9375 21.375 45.28125 18.210938 39.5625 16.21875 C 40.722656 10.4375 39.921875 5.90625 37 4.21875 C 36.21875 3.765625 35.332031 3.53125 34.34375 3.53125 C 31.636719 3.53125 28.332031 5.316406 25 8.34375 C 21.667969 5.316406 18.363281 3.53125 15.65625 3.53125 Z M 12.0625 4.6875 C 11.042969 4.6875 10.21875 5.511719 10.21875 6.53125 C 10.21875 7.550781 11.042969 8.375 12.0625 8.375 C 13.082031 8.375 13.9375 7.550781 13.9375 6.53125 C 13.9375 5.511719 13.082031 4.6875 12.0625 4.6875 Z M 34.34375 5.375 C 35.003906 5.375 35.5625 5.523438 36.0625 5.8125 C 38.078125 6.976563 38.789063 10.628906 37.8125 15.65625 C 35.5625 15.011719 33.042969 14.554688 30.34375 14.28125 C 28.949219 12.425781 27.492188 10.75 26.03125 9.3125 C 29.097656 6.816406 32.101563 5.375 34.34375 5.375 Z M 25.03125 10.15625 C 26.351563 11.308594 27.667969 12.660156 28.9375 14.15625 C 27.652344 14.0625 26.351563 14 25 14 C 23.691406 14 22.433594 14.066406 21.1875 14.15625 C 22.445313 12.648438 23.726563 11.3125 25.03125 10.15625 Z M 25 14.75 C 26.605469 14.75 28.167969 14.859375 29.6875 15.03125 C 30.960938 16.621094 32.164063 18.371094 33.25 20.25 C 33.960938 21.484375 34.566406 22.707031 35.125 23.90625 C 34.363281 25.644531 33.46875 27.4375 32.40625 29.28125 C 31.410156 31.003906 30.324219 32.617188 29.21875 34.125 C 27.847656 34.242188 26.441406 34.3125 25 34.3125 C 23.546875 34.3125 22.132813 34.242188 20.75 34.125 C 19.648438 32.621094 18.585938 30.996094 17.59375 29.28125 C 16.570313 27.511719 15.710938 25.765625 14.96875 24.09375 C 15.566406 22.796875 16.230469 21.460938 17 20.125 C 18.070313 18.273438 19.265625 16.5625 20.5 15 C 21.960938 14.839844 23.460938 14.75 25 14.75 Z M 18.9375 15.21875 C 17.910156 16.652344 16.933594 18.195313 16 19.8125 C 15.421875 20.8125 14.902344 21.792969 14.40625 22.78125 C 13.527344 20.636719 12.898438 18.617188 12.46875 16.75 C 14.4375 16.082031 16.601563 15.5625 18.9375 15.21875 Z M 31.0625 15.21875 C 33.410156 15.566406 35.585938 16.074219 37.5625 16.75 C 37.128906 18.613281 36.46875 20.640625 35.59375 22.78125 C 35.097656 21.792969 34.578125 20.8125 34 19.8125 C 33.066406 18.195313 32.089844 16.652344 31.0625 15.21875 Z M 10.71875 17.40625 C 11.285156 19.777344 12.171875 22.335938 13.34375 24.96875 C 12.238281 27.441406 11.417969 29.84375 10.84375 32.09375 C 5.957031 30.371094 2.78125 27.8125 2.78125 25 C 2.78125 22.214844 5.90625 19.386719 10.71875 17.40625 Z M 25 19 C 21.699219 19 19 21.699219 19 25 C 19 28.300781 21.699219 31 25 31 C 28.300781 31 31 28.300781 31 25 C 31 21.699219 28.300781 19 25 19 Z M 25 21 C 25.832031 21 26.613281 21.257813 27.25 21.6875 C 26.960938 22.144531 26.777344 22.875 26.71875 23.09375 C 26.632813 23.425781 26.566406 23.808594 26.59375 24.15625 C 26.671875 25.097656 27.492188 24.09375 27.9375 24.375 C 28.179688 24.527344 28.121094 25.03125 28.09375 25.28125 C 28.035156 25.832031 27.925781 26.347656 27.78125 26.875 C 27.664063 27.300781 27.742188 27.667969 28 27.65625 C 27.269531 28.484375 26.199219 29 25 29 C 24.894531 29 24.792969 28.976563 24.6875 28.96875 C 24.582031 28.585938 24.546875 28.199219 24.5625 27.78125 C 24.589844 27.125 24.988281 26.730469 25.3125 26.1875 C 25.5 25.871094 25.496094 25.546875 25.4375 25.21875 C 25.40625 25.046875 25.34375 24.890625 25.3125 24.71875 C 25.261719 24.457031 25.285156 24.335938 25.03125 24.25 C 24.945313 24.222656 24.851563 24.21875 24.75 24.21875 C 24.441406 24.21875 24.066406 24.3125 23.75 24.3125 C 23.558594 24.3125 23.40625 24.265625 23.28125 24.15625 C 23.097656 23.996094 23.085938 23.613281 23.25 23.4375 C 23.375 23.304688 23.480469 23.25 23.59375 23.25 C 23.78125 23.25 23.964844 23.40625 24.0625 23.625 C 24.453125 23.625 24.25 22.699219 24.3125 22.46875 C 24.371094 22.242188 24.574219 22.042969 24.625 21.8125 C 24.703125 21.460938 24.648438 21.242188 24.53125 21.0625 C 24.6875 21.042969 24.839844 21 25 21 Z M 22.375 24.125 C 22.871094 24.125 22.683594 24.730469 22.375 25.03125 C 22.054688 25.339844 21.953125 25.488281 22.0625 25.96875 C 22.238281 26.753906 22.835938 27.359375 23.1875 28.0625 C 23.304688 28.296875 23.445313 28.5 23.59375 28.71875 C 22.078125 28.152344 21 26.722656 21 25 C 21 24.722656 21.039063 24.449219 21.09375 24.1875 C 21.105469 24.230469 21.136719 24.269531 21.15625 24.3125 C 21.222656 24.460938 21.382813 24.65625 21.5625 24.65625 C 21.585938 24.65625 21.601563 24.664063 21.625 24.65625 C 21.851563 24.585938 21.902344 24.21875 22.1875 24.15625 C 22.261719 24.140625 22.316406 24.125 22.375 24.125 Z M 36.125 26.15625 C 37.007813 28.378906 37.636719 30.503906 38.03125 32.46875 C 36.109375 33.066406 33.988281 33.527344 31.6875 33.84375 C 32.488281 32.679688 33.261719 31.464844 34 30.1875 C 34.78125 28.835938 35.492188 27.488281 36.125 26.15625 Z M 14 26.3125 C 14.613281 27.59375 15.25 28.886719 16 30.1875 C 16.730469 31.453125 17.488281 32.6875 18.28125 33.84375 C 16.054688 33.539063 13.996094 33.101563 12.125 32.53125 C 12.527344 30.59375 13.132813 28.5 14 26.3125 Z M 43.46875 28.6875 C 42.449219 28.6875 41.625 29.511719 41.625 30.53125 C 41.625 31.550781 42.449219 32.375 43.46875 32.375 C 44.488281 32.375 45.3125 31.550781 45.3125 30.53125 C 45.3125 29.511719 44.488281 28.6875 43.46875 28.6875 Z M 38.3125 34.1875 C 39.019531 39.28125 38.0625 43.035156 36.0625 44.1875 C 35.5625 44.476563 35 44.625 34.34375 44.625 C 32.097656 44.625 29.238281 43.058594 26.3125 40.40625 C 27.671875 39.039063 29.011719 37.476563 30.3125 35.75 C 33.222656 35.453125 35.929688 34.914063 38.3125 34.1875 Z M 22.125 35.90625 C 23.070313 35.957031 24.019531 36 25 36 C 25.980469 36 26.929688 35.957031 27.875 35.90625 C 26.925781 37.082031 25.933594 38.152344 24.96875 39.125 C 24.011719 38.15625 23.066406 37.074219 22.125 35.90625 Z M 17.625 43.46875 C 16.605469 43.46875 15.78125 44.292969 15.78125 45.3125 C 15.78125 46.332031 16.605469 47.15625 17.625 47.15625 C 18.644531 47.15625 19.46875 46.332031 19.46875 45.3125 C 19.46875 44.292969 18.644531 43.46875 17.625 43.46875 Z"
-            stroke-linecap="round"
-          />
-        </g>
-      </svg>
-    </span>
-  </div>
-</section>
-
-<section class="who-we-are-leadership">
-  <div class="leadership-wrapper container">
-    <h1 class="leadership-title">Leadership</h1>
-    <div class="carousel leadership-carousel">
+  <section class="who-we-are-leadership">
+    <div class="leadership-wrapper container-md">
+      <h1 class="leadership-title">Leadership</h1>
+      <p class="desc">
+        Dedicated professionals committed to excellence in defense.
+      </p>
+      <div class="leadership-grid">
+        <div class="leader-card" *ngFor="let leader of leadership">
+          <img [src]="leader.photo" [alt]="leader.name" />
+          <div class="leader-name">{{ leader.name }}</div>
+          <div class="leader-title">{{ leader.title }}</div>
+          <div class="leader-bio">{{ leader.bio }}</div>
+          <div class="leader-socials">
+            <div class="social">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="24"
+                height="24"
+                viewBox="0 0 50 50"
+                class="icon"
+              >
+                <path
+                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+                ></path>
+              </svg>
+            </div>
+            <div class="social">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="24"
+                height="24"
+                viewBox="0 0 50 50"
+                class="icon"
+              >
+                <path
+                  d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="carousel leadership-carousel">
       <div
         class="carousel-slide"
         *ngFor="let item of leadership; let i = index"
@@ -70,150 +86,91 @@
           <p>{{ item.title }}</p>
         </div>
       </div>
+    </div> -->
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="who-we-are-mission">
-  <div class="mission-wrapper container">
-    <div class="mission-statement">
-      <h1><span id="mission">Our Mission</span></h1>
-      <p id="mission-paragraph">
-        Be the force multiplier equipping policymakers and warfighters with
-        cutting-edge tools, technologies, and techniques—where intelligent
-        engineering is our edge, innovation is our strength, and our team shapes
-        the digital battlespace.
-      </p>
-    </div>
-    <span>
-      <svg
-        width="200"
-        height="200"
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-      >
-        <defs>
-          <linearGradient id="shieldGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ff6b00" />
-            <stop offset="100%" stop-color="#111111" />
-          </linearGradient>
-        </defs>
-
-        <!-- Shield Base -->
-        <path
-          d="M32 4 L12 12 V32 C12 44 22 54 32 60 C42 54 52 44 52 32 V12 Z"
-          fill="url(#shieldGradient)"
-          stroke="#000"
-          stroke-width="1.5"
-        />
-
-        <!-- Orbit Ring -->
-        <ellipse
-          cx="32"
-          cy="32"
-          rx="18"
-          ry="6"
-          transform="rotate(-30 32 32)"
-          stroke="#ff6b00"
-          stroke-width="1.5"
-          fill="none"
-        />
-
-        <!-- Satellite Dot on Orbit -->
-        <circle cx="46" cy="28" r="2" fill="#ff6b00" />
-
-        <!-- Target Lines -->
-        <line
-          x1="32"
-          y1="12"
-          x2="32"
-          y2="22"
-          stroke="#ffffff"
-          stroke-width="1.5"
-          stroke-dasharray="2 2"
-        />
-        <line
-          x1="22"
-          y1="32"
-          x2="12"
-          y2="32"
-          stroke="#ffffff"
-          stroke-width="1.5"
-          stroke-dasharray="2 2"
-        />
-        <line
-          x1="32"
-          y1="52"
-          x2="32"
-          y2="42"
-          stroke="#ffffff"
-          stroke-width="1.5"
-          stroke-dasharray="2 2"
-        />
-      </svg>
-    </span>
-  </div>
-</section>
-
-<section class="who-we-are-core-values">
-  <div class="core-values-wrapper container">
-    <h1 class="core-values-title">Core Values</h1>
-    <div class="carousel value-carousel">
-      <div
-        class="carousel-slide"
-        *ngFor="let item of coreValues; let i = index"
-        #valueSlide
-        [attr.data-index]="i"
-      >
-        <img [src]="item.image" [alt]="item.value" />
-        <div class="text-content">
-          <h2>{{ item.value }}</h2>
-          <p>{{ item.statement }}</p>
-        </div>
+  <section class="who-we-are-vision">
+    <div class="vision-wrapper container-sm">
+      <div class="vision-statement">
+        <h1><span id="vision">Our Vision</span></h1>
+        <p id="vision-paragraph">
+          To be the leader of next generation intelligence and defense
+          solutions, delivering capabilities that outclass our adversaries
+          across all domains.
+        </p>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="who-we-are-partners">
-  <div class="partners-wrapper container">
-    <div class="partners-statement">
-      <h1><span id="partners">Our Partners</span></h1>
-      <div class="partners-viewport">
-        <div class="partners-track" #partnersTrack>
-          <div
-            class="partner"
-            *ngFor="let partner of partners.concat(partners)"
-          >
-            <img [src]="partner.image" alt="partner logo" />
+      <canvas class="support-graphic" id="vision-graph" #visionGraphic></canvas>
+    </div>
+  </section>
+
+  <section class="who-we-are-culture">
+    <div class="culture-wrapper container-md">
+      <h1 class="culture-title">Culture</h1>
+      <div class="carousel culture-carousel">
+        <div
+          class="carousel-slide"
+          *ngFor="let item of culture; let i = index"
+          #cultureSlide
+          [attr.data-index]="i"
+        >
+          <img src="../../../assets/dso.jpg" />
+          <div class="text-content">
+            <h2>{{ item.headline }}</h2>
+            <p>{{ item.statement }}</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="who-we-are-culture">
-  <div class="culture-wrapper container">
-    <h1 class="culture-title">Culture</h1>
-    <div class="carousel culture-carousel">
-      <div
-        class="carousel-slide"
-        *ngFor="let item of culture; let i = index"
-        #cultureSlide
-        [attr.data-index]="i"
-      >
-        <img src="../../../assets/dso.jpg" />
-        <div class="text-content">
-          <h2>{{ item.headline }}</h2>
-          <p>{{ item.statement }}</p>
+  <section class="who-we-are-core-values">
+    <div class="core-values-wrapper container-md">
+      <div class="core-values-statement">
+        <h1><span id="core-values">Our Values</span></h1>
+        <p id="core-values-paragraph">
+          <li>
+            <p>People</p>
+            Our people are the foundation of our mission. We foster a
+            world-class culture that empowers and prioritizes them.
+          </li>
+          <li>
+            <p>Passion</p>
+            We are inspired by the missions we serve and proactively seek
+            innovative methodologies to address evolving challenges.
+          </li>
+          <li>
+            <p>Integrity</p>
+            We uphold the highest standards of performance, acting with
+            unwavering honesty and accountability to earn and sustain the trust
+            of our colleagues, partners, and customers.
+          </li>
+        </p>
+      </div>
+
+      <span class="support-graphic"></span>
+    </div>
+  </section>
+
+  <section class="who-we-are-partners">
+    <div class="partners-wrapper container-md">
+      <div class="partners-statement">
+        <h1><span id="partners">Our Partners</span></h1>
+        <div class="partners-viewport">
+          <div class="partners-track" #partnersTrack>
+            <div
+              class="partner"
+              *ngFor="let partner of partners.concat(partners)"
+            >
+              <img [src]="partner.image" alt="partner logo" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
+</div>
 <app-footer></app-footer>
 
 <!-- Vision: To be the leader of next generation intelligence and defense solutions, delivering capabilities that outclass our adversaries across all domains.

@@ -12,17 +12,17 @@ import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 
 // import { DOCUMENT } from '@angular/common';
-// import gsap from 'gsap';
-// import ScrollTrigger from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 // import ScrollToPlugin from 'gsap/ScrollToPlugin';
 // import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
 // import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
-// gsap.registerPlugin(
-//   MorphSVGPlugin,
-//   ScrollTrigger,
-//   ScrambleTextPlugin,
-//   ScrollToPlugin
-// );
+gsap.registerPlugin(
+  //   MorphSVGPlugin,
+  ScrollTrigger
+  //   ScrambleTextPlugin,
+  //   ScrollToPlugin
+);
 
 @Component({
   selector: 'app-what-we-do',
@@ -74,9 +74,41 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
     const loader = new GLTFLoader();
     loader.load('../../../assets/models/satellite-1.glb', (gltf) => {
       this.model = gltf.scene;
+      this.model.position.set(230, 0, 0); // starts off screen
+      this.model.rotation.set(3, 1, 4);
       this.model.scale.set(1, 1, 1);
-      this.model.rotateX(6);
+      // this.model.rotation.x = Math.PI / 1;
+      // this.model.rotation.y = Math.PI / 1;
       this.scene.add(this.model);
+
+      // Animate after 500ms
+      gsap.to(this.model.position, {
+        x: 2,
+        duration: 3,
+        delay: 0.5,
+        ease: 'power2.inOut',
+      });
+
+      gsap.to(this.model.position, {
+        y: -1,
+        scrollTrigger: {
+          trigger: '#three', // Make sure this ID exists
+          start: '45% center',
+          end: 'bottom center',
+          scrub: true,
+        },
+      });
+      gsap.to(this.model.scale, {
+        x: 0.9,
+        y: 0.9,
+        z: 0.9,
+        scrollTrigger: {
+          trigger: '#three', // Make sure this ID exists
+          start: '45% center',
+          end: 'bottom center',
+          scrub: true,
+        },
+      });
     });
 
     window.addEventListener('resize', () => {
@@ -91,7 +123,7 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
 
     const animate = () => {
       this.frameId = requestAnimationFrame(animate);
-      if (this.model) this.model.rotation.y += 0.005;
+      if (this.model) this.model.rotation.y += 0.001;
       // if (this.model) this.model.rotation.x += 0.005;
       // controls.update();
       this.renderer.render(this.scene, this.camera);

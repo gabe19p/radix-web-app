@@ -20,7 +20,12 @@
 
   /* Colors - Light Theme */
   // --color-bg: #000000;
-  --color-bg: #1f1f1f;
+  --color-bg: #000000;
+  --color-bg-gradient: linear-gradient(
+    0deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-bg) 100%
+  );
   --color-bg-secondary: #29303a;
   --color-text: #f1f5f9;
   --color-text-secondary: #c4c4c4;
@@ -41,7 +46,9 @@
   --radius-md: 8px;
   --radius-lg: 16px;
 
-  --container-width: 1440px;
+  --container-width-sm: 1040px;
+  --container-width-md: 1440px;
+  --container-width-lg: 1800px;
   --container-padding: var(--spacing-lg);
 }
 
@@ -72,11 +79,7 @@ body {
   font-family: var(--font-base);
   color: var(--color-text-secondary);
   background-color: var(--color-bg);
-  background: linear-gradient(
-    0deg,
-    var(--color-bg-secondary) 0%,
-    var(--color-bg) 100%
-  );
+  background: var(--color-bg-gradient);
   min-height: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -92,8 +95,25 @@ body {
   flex: 1; // Fills remaining space between nav and footer
 }
 
-.container {
-  max-width: var(--container-width);
+.container-sm {
+  max-width: var(--container-width-sm);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.container-md {
+  max-width: var(--container-width-md);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+.container-lg {
+  max-width: var(--container-width-lg);
   margin-inline: auto;
   padding-inline: var(--container-padding);
   position: relative;

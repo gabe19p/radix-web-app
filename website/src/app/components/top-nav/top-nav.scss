@@ -9,7 +9,7 @@
   top: 0;
   z-index: 100;
   cursor: default;
-  max-width: 1440px;
+  max-width: var(--container-width);
   margin: 0 auto;
 
   .logo {

@@ -62,3 +62,15 @@
     }
   }
 }
+
+.home {
+  background: var(--color-bg-gradient);
+  box-shadow: 0 0 10px black;
+  height: 100vh;
+  z-index: 5;
+  // max-width: var(--container-width);
+  margin: 0;
+  padding-inline: var(--container-padding);
+  position: relative;
+  overflow: hidden;
+}

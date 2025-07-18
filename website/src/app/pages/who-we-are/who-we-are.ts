@@ -1,51 +1,69 @@
 import {
   AfterViewInit,
   Component,
-  OnInit,
+  OnDestroy,
   QueryList,
+  ViewChild,
   ViewChildren,
   ElementRef,
-  OnDestroy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { Footer } from '../../components/footer/footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-who-we-are',
+  standalone: true,
   imports: [RouterModule, Footer, CommonModule],
   templateUrl: './who-we-are.html',
   styleUrl: './who-we-are.scss',
 })
 export class WhoWeAre implements AfterViewInit, OnDestroy {
-  @ViewChildren('valueSlide', { read: ElementRef })
-  valueSlides!: QueryList<ElementRef>;
+  @ViewChild('missionGraphic', { static: true }) missionRef!: ElementRef;
+  @ViewChild('visionGraphic', { static: true }) visionRef!: ElementRef;
+  @ViewChild('bgThree', { static: true }) bgRef!: ElementRef;
   @ViewChildren('cultureSlide', { read: ElementRef })
   cultureSlides!: QueryList<ElementRef>;
-  @ViewChildren('partnersTrack', { read: ElementRef })
-  partnersTrack!: QueryList<ElementRef>;
+
+  private loader = new GLTFLoader();
+  private frameId = 0;
+
+  private missionScene!: THREE.Scene;
+  private visionScene!: THREE.Scene;
+  private bgScene!: THREE.Scene;
+
+  private missionCamera!: THREE.PerspectiveCamera;
+  private visionCamera!: THREE.PerspectiveCamera;
+  private bgCamera!: THREE.PerspectiveCamera;
+
+  private missionRenderer!: THREE.WebGLRenderer;
+  private visionRenderer!: THREE.WebGLRenderer;
+  private bgRenderer!: THREE.WebGLRenderer;
+
+  private missionModel: THREE.Object3D | null = null;
+  private visionModel: THREE.Object3D | null = null;
+  private bgModel: THREE.Object3D | null = null;
 
   coreValues = [
     {
       value: 'People',
-      statement:
-        'Our people are the foundation of our mission. We foster a world-class culture that empowers and prioritizes them.',
+      statement: 'Our people are the foundation...',
       image: '../../../assets/photos/coreValuePeople.jpg',
     },
     {
       value: 'Passion',
-      statement:
-        'We are inspired by the missions we serve and proactively seek innovative methodologies to address evolving challenges.',
+      statement: 'We are inspired by the missions...',
       image: '../../../assets/photos/coreValuePassion.jpg',
     },
     {
       value: 'Integrity',
-      statement:
-        'We uphold the highest standards of performance, acting with unwavering honesty and accountability to earn and sustain the trust of our colleagues, partners, and customers.',
+      statement: 'We uphold the highest standards...',
       image: '../../../assets/photos/coreValueIntegrity.jpg',
     },
   ];
@@ -53,23 +71,19 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
   culture = [
     {
       headline: 'We empower those who serve.',
-      statement:
-        'We take pride in being on the periphery supporting our national heroes; they will never know us, yet they will feel the benefit of our work!',
+      statement: 'We take pride in being on the periphery...',
     },
     {
       headline: 'We innovate with purpose.',
-      statement:
-        'A company of empowered bold thinkers; we are driven by passion, creativity, and the audacity to constantly push the boundaries of technology.',
+      statement: 'A company of empowered bold thinkers...',
     },
     {
       headline: 'Trust is our foundation.',
-      statement:
-        'Our commitment to reliability, quality, and integrity is unwavering; we are accountable to the highest standards and always deliver on our promises.',
+      statement: 'Our commitment to reliability, quality...',
     },
     {
       headline: 'We are a team of families.',
-      statement:
-        'We actively foster an environment where both professional and personal life are valued and supported. We encourage a culture of flexibility and balance, being human takes precedence.',
+      statement: 'We actively foster an environment...',
     },
   ];
 
@@ -78,25 +92,37 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
       name: 'Pete Molina',
       title: 'CEO',
       photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium exercitationem officiis, iure illum voluptatem aliquid veritatis voluptatibus sit a cumque temporibus maiores facere, deleniti voluptate, vel dolor nihil ratione. Voluptatem.',
+      bio: 'Lorem ipsum dolor sit amet...',
     },
     {
       name: 'Mike Kritenbrink',
       title: 'VP',
       photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium exercitationem officiis, iure illum voluptatem aliquid veritatis voluptatibus sit a cumque temporibus maiores facere, deleniti voluptate, vel dolor nihil ratione. Voluptatem.',
+      bio: 'Lorem ipsum dolor sit amet...',
+    },
+    {
+      name: 'Amanda Smith',
+      title: 'Director of Sec',
+      photo: '../../../assets/headshots/headshot-pete.png',
+      bio: 'Lorem ipsum dolor sit amet...',
     },
     {
       name: 'Ricky Kee',
       title: 'Corporate Director',
       photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium exercitationem officiis, iure illum voluptatem aliquid veritatis voluptatibus sit a cumque temporibus maiores facere, deleniti voluptate, vel dolor nihil ratione. Voluptatem.',
+      bio: 'Lorem ipsum dolor sit amet...',
     },
     {
       name: 'Roger Altobelli',
-      title: 'Director of Solutions',
+      title: 'Director of Strat',
       photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium exercitationem officiis, iure illum voluptatem aliquid veritatis voluptatibus sit a cumque temporibus maiores facere, deleniti voluptate, vel dolor nihil ratione. Voluptatem.',
+      bio: 'Lorem ipsum dolor sit amet...',
+    },
+    {
+      name: 'Charlie Smith',
+      title: 'Tech Director',
+      photo: '../../../assets/headshots/headshot-pete.png',
+      bio: 'Lorem ipsum dolor sit amet...',
     },
   ];
 
@@ -110,93 +136,267 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     { image: '../../../assets/logos/raytheon.jpg' },
   ];
 
-  partnerOffset = 0;
-
-  visiblePartners: any[] = [];
-  partnerIndex = 0;
-  valueIndex = 0;
   cultureIndex = 0;
-  leadershipIndex = 0;
   intervalId: any;
 
   ngAfterViewInit() {
-    this.updateVisiblePartners();
-    // Ensure all slides start hidden
-    gsap.set('.value-carousel .carousel-slide', { autoAlpha: 0 });
-    gsap.set('.culture-carousel .carousel-slide', { autoAlpha: 0 });
-    gsap.set('.leadership-carousel .carousel-slide', { autoAlpha: 0 });
-    this.showSlide(this.valueIndex, '.value-carousel');
-    this.showSlide(this.cultureIndex, '.culture-carousel');
-    this.showSlide(this.leadershipIndex, '.leadership-carousel');
-
-    // Auto-cycle every X seconds
-    this.intervalId = setInterval(() => {
-      this.valueIndex = (this.valueIndex + 1) % this.coreValues.length;
-      this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
-      this.leadershipIndex =
-        (this.leadershipIndex + 1) % this.leadership.length;
-      this.partnerIndex = (this.partnerIndex + 1) % this.partners.length;
-      this.updateVisiblePartners();
-
-      this.showSlide(this.valueIndex, '.value-carousel');
-      this.showSlide(this.cultureIndex, '.culture-carousel');
-      this.showSlide(this.leadershipIndex, '.leadership-carousel');
-    }, 8000);
+    this.splitText();
+    requestIdleCallback(() => {
+      this.initScenes();
+      this.loadModels();
+      this.animate();
+    });
+    this.setupGsapAnimations();
+    this.startCultureCarousel();
   }
 
   ngOnDestroy() {
+    if (this.frameId) cancelAnimationFrame(this.frameId);
+    this.missionRenderer.dispose();
+    this.visionRenderer.dispose();
     clearInterval(this.intervalId);
   }
 
-  showSlide(index: number, containerSelector: string) {
-    gsap.to(`${containerSelector} .carousel-slide`, {
+  private initScenes() {
+    const [missionWidth, missionHeight] = [
+      this.missionRef.nativeElement.clientWidth,
+      this.missionRef.nativeElement.clientHeight,
+    ];
+    const [visionWidth, visionHeight] = [
+      this.visionRef.nativeElement.clientWidth,
+      this.visionRef.nativeElement.clientHeight,
+    ];
+    const [bgWidth, bgHeight] = [
+      this.bgRef.nativeElement.clientWidth,
+      this.bgRef.nativeElement.clientHeight,
+    ];
+
+    // Mission Scene
+    this.missionScene = new THREE.Scene();
+    this.missionCamera = new THREE.PerspectiveCamera(
+      45,
+      missionWidth / missionHeight,
+      0.1,
+      1000
+    );
+    this.missionCamera.position.z = 5;
+    this.missionRenderer = new THREE.WebGLRenderer({
+      canvas: this.missionRef.nativeElement,
+      alpha: true,
+      antialias: true,
+    });
+    this.missionRenderer.setSize(missionWidth, missionHeight);
+    this.missionScene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.5));
+
+    // Vision Scene
+    this.visionScene = new THREE.Scene();
+    this.visionCamera = new THREE.PerspectiveCamera(
+      45,
+      visionWidth / visionHeight,
+      0.1,
+      1000
+    );
+    this.visionCamera.position.z = 5;
+    this.visionRenderer = new THREE.WebGLRenderer({
+      canvas: this.visionRef.nativeElement,
+      alpha: true,
+      antialias: true,
+    });
+    this.visionRenderer.setSize(visionWidth, visionHeight);
+    this.visionScene.add(
+      new THREE.AmbientLight(0xffffff, 0.6),
+      new THREE.DirectionalLight(0xffffff, 2)
+    );
+
+    // Background Scene
+    this.bgScene = new THREE.Scene();
+    this.bgCamera = new THREE.PerspectiveCamera(
+      45,
+      bgWidth / bgHeight,
+      0.1,
+      1000
+    );
+    this.bgCamera.position.z = 30;
+    this.bgRenderer = new THREE.WebGLRenderer({
+      canvas: this.bgRef.nativeElement,
+      alpha: true,
+      antialias: true,
+    });
+    this.bgRenderer.setSize(bgWidth, bgHeight);
+    this.bgScene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.5));
+  }
+
+  private async loadModels() {
+    const [bg, mission, vision] = await Promise.all([
+      this.loader.loadAsync('/assets/models/orbit-rings.glb'),
+      this.loader.loadAsync('/assets/models/piece.glb'),
+      this.loader.loadAsync('/assets/models/orbit-rings.glb'),
+    ]);
+
+    this.bgModel = bg.scene;
+    this.bgModel.scale.set(100, 100, 100);
+    this.bgModel.rotation.set(1, 0, 0);
+    this.bgScene.add(this.bgModel);
+
+    this.missionModel = mission.scene;
+    this.missionModel.rotation.set(1, 0, 0);
+    this.missionScene.add(this.missionModel);
+
+    this.visionModel = vision.scene;
+    this.visionModel.scale.set(3, 3, 3);
+    this.visionModel.rotation.set(0.5, 0.5, 0);
+    this.visionScene.add(this.visionModel);
+
+    // Animations
+    gsap.from(this.bgModel.scale, {
+      scrollTrigger: { trigger: '#bg-three', start: 'top 75%' },
+      x: 0,
+      y: 0,
+      z: 0,
+      duration: 3,
+      delay: 2,
+      ease: 'power1.inOut',
+    });
+
+    gsap.to(this.bgModel.position, {
+      y: 0.2,
+      scrollTrigger: {
+        trigger: '#full-page',
+        start: '5% bottom',
+        end: '95% bottom',
+        scrub: true,
+      },
+      ease: 'none',
+    });
+
+    gsap.to('#bg-three', {
+      opacity: 0.3,
+      scrollTrigger: {
+        trigger: '#bg-three',
+        start: 'bottom 35%',
+        end: 'bottom 5%',
+        scrub: true,
+      },
+      ease: 'power1.inOut',
+    });
+
+    gsap.to(this.missionModel.rotation, {
+      z: Math.PI * 1.5,
+      scrollTrigger: {
+        trigger: '#mission',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      },
+      ease: 'none',
+    });
+
+    gsap.to(this.visionModel.position, {
+      y: -0.5,
+      duration: 1.5,
+      ease: 'power2.out',
+      delay: 0.5,
+    });
+  }
+
+  private animate = () => {
+    this.frameId = requestAnimationFrame(this.animate);
+
+    if (this.missionModel) this.missionModel.rotation.y += 0.01;
+    if (this.visionModel) this.visionModel.rotation.y += 0.005;
+    if (this.bgModel) this.bgModel.rotation.z += 0.0004;
+
+    this.missionRenderer.render(this.missionScene, this.missionCamera);
+    this.visionRenderer.render(this.visionScene, this.visionCamera);
+    this.bgRenderer.render(this.bgScene, this.bgCamera);
+  };
+
+  private setupGsapAnimations() {
+    gsap
+      .timeline({
+        scrollTrigger: { trigger: '#heroText', start: 'top center' },
+      })
+      .from('.hero-letter', {
+        opacity: 0,
+        scale: 0.8,
+        delay: 1,
+        y: 20,
+        stagger: 0.05,
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+
+    const missionTl = gsap.timeline({
+      scrollTrigger: { trigger: '#mission', start: 'top 75%' },
+    });
+
+    missionTl
+      .from('.letter', {
+        opacity: 0,
+        scale: 0.5,
+        y: -20,
+        stagger: 0.03,
+        duration: 1,
+        ease: 'back.out(1.7)',
+      })
+      .from(
+        '.word',
+        {
+          y: 30,
+          opacity: 0,
+          stagger: 0.05,
+          duration: 1.5,
+          ease: 'power2.out',
+        },
+        '<'
+      );
+  }
+
+  private splitText() {
+    const split = (id: string, className: string) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const chars = el.textContent?.split('') || [];
+      el.innerHTML = chars
+        .map(
+          (c) => `<span class="${className}">${c === ' ' ? '&nbsp;' : c}</span>`
+        )
+        .join('');
+    };
+
+    const splitWords = (id: string) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const words = el.textContent?.split(' ') || [];
+      el.innerHTML = words
+        .map((w) => `<span class="word">${w}</span>`)
+        .join(' ');
+    };
+
+    split('heroText', 'hero-letter');
+    split('mission', 'letter');
+    splitWords('mission-paragraph');
+  }
+
+  private startCultureCarousel() {
+    gsap.set('.culture-carousel .carousel-slide', { autoAlpha: 0 });
+    this.showSlide(this.cultureIndex);
+    this.intervalId = setInterval(() => {
+      this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
+      this.showSlide(this.cultureIndex);
+    }, 8000);
+  }
+
+  private showSlide(index: number) {
+    gsap.to('.culture-carousel .carousel-slide', {
       autoAlpha: 0,
       duration: 0.4,
       ease: 'power2.out',
     });
-
     gsap.fromTo(
-      `${containerSelector} .carousel-slide[data-index="${index}"]`,
+      `.culture-carousel .carousel-slide[data-index="${index}"]`,
       { autoAlpha: 0, x: 20 },
-      {
-        autoAlpha: 1,
-        x: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-      }
+      { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power2.out' }
     );
-  }
-
-  showNextSlide() {
-    this.valueIndex = (this.valueIndex + 1) % this.coreValues.length;
-    this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
-    this.leadershipIndex = (this.leadershipIndex + 1) % this.leadership.length;
-
-    this.showSlide(this.valueIndex, '.value-carousel');
-    this.showSlide(this.cultureIndex, '.culture-carousel');
-    this.showSlide(this.leadershipIndex, '.leadership-carousel');
-  }
-
-  updateVisiblePartners() {
-    const track = this.partnersTrack.first?.nativeElement as HTMLElement;
-    if (!track) return;
-
-    const partnerWidth =
-      track.children[0]?.getBoundingClientRect().width || 150;
-    const totalWidth = partnerWidth * this.partners.length;
-
-    this.partnerOffset -= partnerWidth;
-
-    // Wrap to beginning
-    if (Math.abs(this.partnerOffset) >= totalWidth) {
-      this.partnerOffset = 0;
-      gsap.set(track, { x: 0 }); // jump reset
-    } else {
-      gsap.to(track, {
-        x: this.partnerOffset,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-    }
   }
 }
