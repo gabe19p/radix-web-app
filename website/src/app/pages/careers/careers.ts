@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import { TopNav } from '../../components/top-nav/top-nav';
 import { Footer } from '../../components/footer/footer';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -18,6 +17,7 @@ export class Careers implements AfterViewInit {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngAfterViewInit(): void {
+    this.splitText();
     const groups = this.document.querySelectorAll('.discipline-group');
 
     groups.forEach((group) => {
@@ -61,18 +61,18 @@ export class Careers implements AfterViewInit {
 
     const disciplinesTl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.career-disciplines',
+        trigger: '.careers-disciplines',
         start: 'top 70%',
       },
     });
-    disciplinesTl.to('#disciplines', {
-      duration: 1,
-      scrambleText: {
-        text: 'Our Disciplines ',
-        chars: '01 ',
-        revealDelay: 0.1,
-        speed: 0.3,
-      },
+    disciplinesTl.from('.disciplines-letter', {
+      opacity: 0,
+      scale: 0.8,
+      delay: 1,
+      y: 20,
+      stagger: 0.05,
+      duration: 0.6,
+      ease: 'power2.out',
     });
     disciplinesTl.fromTo(
       '.disciplines-list',
@@ -85,5 +85,20 @@ export class Careers implements AfterViewInit {
       { y: 0, opacity: 1 },
       '>' // Start after scrambleText
     );
+  }
+
+  private splitText() {
+    const split = (id: string, className: string) => {
+      const el = this.document.getElementById(id);
+      if (!el) return;
+      const chars = el?.textContent?.split('') || [];
+      el.innerHTML = chars
+        .map(
+          (c) => `<span class="${className}">${c === '' ? '&nbsp;' : c}</span>`
+        )
+        .join('');
+    };
+
+    split('disciplines', 'disciplines-letter');
   }
 }

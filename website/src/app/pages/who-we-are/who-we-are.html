@@ -1,5 +1,5 @@
 <div class="full-page" id="full-page" #fullPage>
-  <canvas id="bg-three" #bgThree></canvas>
+  <!-- <canvas id="bg-three" #bgThree></canvas> -->
   <section class="who-we-are-hero">
     <div class="hero-wrapper container-lg">
       <h1 class="hero-title">
@@ -156,13 +156,21 @@
   <section class="who-we-are-partners">
     <div class="partners-wrapper container-md">
       <div class="partners-statement">
-        <h1><span id="partners">Our Partners</span></h1>
-        <div class="partners-viewport">
-          <div class="partners-track" #partnersTrack>
-            <div
-              class="partner"
-              *ngFor="let partner of partners.concat(partners)"
-            >
+        <h1><span id="partners">Trusted Partners</span></h1>
+
+        <div class="partners-grid">
+          <div class="partners-row">
+            <div class="partner" *ngFor="let partner of partners | slice:0:3">
+              <img [src]="partner.image" alt="partner logo" />
+            </div>
+          </div>
+          <div class="partners-row">
+            <div class="partner" *ngFor="let partner of partners | slice:3:7">
+              <img [src]="partner.image" alt="partner logo" />
+            </div>
+          </div>
+          <div class="partners-row">
+            <div class="partner" *ngFor="let partner of partners | slice:7:10">
               <img [src]="partner.image" alt="partner logo" />
             </div>
           </div>

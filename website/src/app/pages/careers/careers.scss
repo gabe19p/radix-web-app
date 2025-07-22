@@ -115,8 +115,16 @@ section {
           width: var(--spacing-xxl);
           height: var(--spacing-xxl);
           border-radius: 50%;
-          background: var(--color-text);
+          background: white;
           transition: scale 0.3s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 40%;
+            height: 40%;
+          }
         }
 
         .sphere:hover {

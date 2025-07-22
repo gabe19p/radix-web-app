@@ -27,7 +27,8 @@ gsap.registerPlugin(ScrollTrigger);
 export class WhoWeAre implements AfterViewInit, OnDestroy {
   @ViewChild('missionGraphic', { static: true }) missionRef!: ElementRef;
   @ViewChild('visionGraphic', { static: true }) visionRef!: ElementRef;
-  @ViewChild('bgThree', { static: true }) bgRef!: ElementRef;
+  // @ViewChild('bgThree', { static: true }) bgRef!: ElementRef;
+  @ViewChildren('partnerEl') partnerEls!: QueryList<ElementRef>;
   @ViewChildren('cultureSlide', { read: ElementRef })
   cultureSlides!: QueryList<ElementRef>;
 
@@ -127,13 +128,16 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
   ];
 
   partners = [
+    { image: '../../../assets/logos/lockheed.jpg' },
     { image: '../../../assets/logos/amazon.png' },
     { image: '../../../assets/logos/boeing.png' },
+    { image: '../../../assets/logos/northrop.jpg' },
     { image: '../../../assets/logos/google.png' },
     { image: '../../../assets/logos/l3.png' },
     { image: '../../../assets/logos/lockheed.jpg' },
-    { image: '../../../assets/logos/northrop.jpg' },
     { image: '../../../assets/logos/raytheon.jpg' },
+    { image: '../../../assets/logos/northrop.jpg' },
+    { image: '../../../assets/logos/google.png' },
   ];
 
   cultureIndex = 0;
@@ -166,10 +170,10 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
       this.visionRef.nativeElement.clientWidth,
       this.visionRef.nativeElement.clientHeight,
     ];
-    const [bgWidth, bgHeight] = [
-      this.bgRef.nativeElement.clientWidth,
-      this.bgRef.nativeElement.clientHeight,
-    ];
+    // const [bgWidth, bgHeight] = [
+    //   this.bgRef.nativeElement.clientWidth,
+    //   this.bgRef.nativeElement.clientHeight,
+    // ];
 
     // Mission Scene
     this.missionScene = new THREE.Scene();
@@ -209,34 +213,34 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     );
 
     // Background Scene
-    this.bgScene = new THREE.Scene();
-    this.bgCamera = new THREE.PerspectiveCamera(
-      45,
-      bgWidth / bgHeight,
-      0.1,
-      1000
-    );
-    this.bgCamera.position.z = 30;
-    this.bgRenderer = new THREE.WebGLRenderer({
-      canvas: this.bgRef.nativeElement,
-      alpha: true,
-      antialias: true,
-    });
-    this.bgRenderer.setSize(bgWidth, bgHeight);
-    this.bgScene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.5));
+    // this.bgScene = new THREE.Scene();
+    // this.bgCamera = new THREE.PerspectiveCamera(
+    //   45,
+    //   bgWidth / bgHeight,
+    //   0.1,
+    //   1000
+    // );
+    // this.bgCamera.position.z = 30;
+    // this.bgRenderer = new THREE.WebGLRenderer({
+    //   canvas: this.bgRef.nativeElement,
+    //   alpha: true,
+    //   antialias: true,
+    // });
+    // this.bgRenderer.setSize(bgWidth, bgHeight);
+    // this.bgScene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 1.5));
   }
 
   private async loadModels() {
-    const [bg, mission, vision] = await Promise.all([
-      this.loader.loadAsync('/assets/models/orbit-rings.glb'),
+    const [mission, vision] = await Promise.all([
+      // this.loader.loadAsync('/assets/models/orbit-rings.glb'),
       this.loader.loadAsync('/assets/models/piece.glb'),
       this.loader.loadAsync('/assets/models/orbit-rings.glb'),
     ]);
 
-    this.bgModel = bg.scene;
-    this.bgModel.scale.set(100, 100, 100);
-    this.bgModel.rotation.set(1, 0, 0);
-    this.bgScene.add(this.bgModel);
+    // this.bgModel = bg.scene;
+    // this.bgModel.scale.set(100, 100, 100);
+    // this.bgModel.rotation.set(1, 0, 0);
+    // this.bgScene.add(this.bgModel);
 
     this.missionModel = mission.scene;
     this.missionModel.rotation.set(1, 0, 0);
@@ -248,40 +252,40 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     this.visionScene.add(this.visionModel);
 
     // Animations
-    gsap.from(this.bgModel.scale, {
-      scrollTrigger: { trigger: '#bg-three', start: 'top 75%' },
-      x: 0,
-      y: 0,
-      z: 0,
-      duration: 3,
-      delay: 2,
-      ease: 'power1.inOut',
-    });
+    // gsap.from(this.bgModel.scale, {
+    //   scrollTrigger: { trigger: '#bg-three', start: 'top 75%' },
+    //   x: 0,
+    //   y: 0,
+    //   z: 0,
+    //   duration: 3,
+    //   delay: 2,
+    //   ease: 'power1.inOut',
+    // });
 
-    gsap.to(this.bgModel.position, {
-      y: 0.2,
-      scrollTrigger: {
-        trigger: '#full-page',
-        start: '5% bottom',
-        end: '95% bottom',
-        scrub: true,
-      },
-      ease: 'none',
-    });
+    // gsap.to(this.bgModel.position, {
+    //   y: 0.2,
+    //   scrollTrigger: {
+    //     trigger: '#full-page',
+    //     start: '5% bottom',
+    //     end: '95% bottom',
+    //     scrub: true,
+    //   },
+    //   ease: 'none',
+    // });
 
-    gsap.to('#bg-three', {
-      opacity: 0.3,
-      scrollTrigger: {
-        trigger: '#bg-three',
-        start: 'bottom 35%',
-        end: 'bottom 5%',
-        scrub: true,
-      },
-      ease: 'power1.inOut',
-    });
+    // gsap.to('#bg-three', {
+    //   opacity: 0.3,
+    //   scrollTrigger: {
+    //     trigger: '#bg-three',
+    //     start: 'bottom 35%',
+    //     end: 'bottom 5%',
+    //     scrub: true,
+    //   },
+    //   ease: 'power1.inOut',
+    // });
 
     gsap.to(this.missionModel.rotation, {
-      z: Math.PI * 1.5,
+      x: Math.PI * 1.5,
       scrollTrigger: {
         trigger: '#mission',
         start: 'top bottom',
@@ -302,13 +306,13 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
   private animate = () => {
     this.frameId = requestAnimationFrame(this.animate);
 
-    if (this.missionModel) this.missionModel.rotation.y += 0.01;
+    if (this.missionModel) this.missionModel.rotation.y += 0.002;
     if (this.visionModel) this.visionModel.rotation.y += 0.005;
-    if (this.bgModel) this.bgModel.rotation.z += 0.0004;
+    // if (this.bgModel) this.bgModel.rotation.z += 0.0004;
 
     this.missionRenderer.render(this.missionScene, this.missionCamera);
     this.visionRenderer.render(this.visionScene, this.visionCamera);
-    this.bgRenderer.render(this.bgScene, this.bgCamera);
+    // this.bgRenderer.render(this.bgScene, this.bgCamera);
   };
 
   private setupGsapAnimations() {
@@ -350,6 +354,19 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
         },
         '<'
       );
+
+    gsap.from('.partner', {
+      scrollTrigger: {
+        trigger: '#partners',
+        start: 'top 50%',
+        end: 'bottom 50%',
+      },
+      opacity: 0,
+      // scale: 0.8,
+      stagger: 0.1,
+      duration: 2,
+      // ease: 'back.out(1.7)',
+    });
   }
 
   private splitText() {
