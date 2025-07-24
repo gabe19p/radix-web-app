@@ -1,15 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { Nav } from '../nav/nav';
 
 @Component({
-  selector: 'app-footer',
-  imports: [CommonModule, RouterModule, Nav],
-  templateUrl: './footer.html',
-  styleUrl: './footer.scss',
+  selector: 'app-nav',
+  imports: [CommonModule, RouterModule],
+  templateUrl: './nav.html',
+  styleUrl: './nav.scss',
 })
-export class Footer {
+export class Nav {
   currentRoute = '';
 
   constructor(private router: Router) {
@@ -17,9 +16,5 @@ export class Footer {
     this.router.events.subscribe(() => {
       this.currentRoute = this.router.url;
     });
-  }
-
-  scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

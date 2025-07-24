@@ -120,6 +120,14 @@ body {
   overflow: hidden;
 }
 
+.raised {
+  box-sizing: border-box;
+  background: var(--color-bg-gradient);
+  overflow: hidden;
+  border-radius: 50px;
+  box-shadow: 0 0 50px black;
+}
+
 $breakpoint-sm: 480px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;

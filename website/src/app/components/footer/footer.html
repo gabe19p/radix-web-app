@@ -73,26 +73,7 @@
     </div>
     <div class="footer-column">
       <!-- nav -->
-      <div class="nav-wrapper">
-        <a
-          class="nav-link"
-          routerLink="/who-we-are"
-          [ngClass]="{'active': currentRoute === '/who-we-are'}"
-          >Who We Are</a
-        >
-        <a
-          class="nav-link"
-          routerLink="/what-we-do"
-          [ngClass]="{'active': currentRoute === '/what-we-do'}"
-          >What We Do</a
-        >
-        <a
-          class="nav-link"
-          routerLink="/careers"
-          [ngClass]="{'active': currentRoute === '/careers'}"
-          >Careers</a
-        >
-      </div>
+      <app-nav></app-nav>
     </div>
     <div
       class="footer-column right-align"

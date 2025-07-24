@@ -1,5 +1,5 @@
 section {
-  padding: var(--spacing-lg) 0;
+  padding: 0;
 }
 
 .careers-hero {
@@ -154,9 +154,8 @@ section {
 }
 
 .careers-cta {
-  padding: 0;
+  height: 80vh;
   width: 100%;
-  height: 90vh;
   position: relative;
   display: flex;
 

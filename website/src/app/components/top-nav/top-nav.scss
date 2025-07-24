@@ -1,89 +1,79 @@
 .top-nav {
   display: flex;
-  justify-content: space-between;
+  font-weight: var(--font-weight-sm);
+  flex-direction: column;
   align-items: center;
-  padding: var(--spacing-md) var(--spacing-lg);
-  // background: var(--color-bg);
-  // color: var(--color-text);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  cursor: default;
-  max-width: var(--container-width);
-  margin: 0 auto;
+  width: 100%;
+}
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
+.logo {
+  color: var(--color-primary);
+}
+
+.nav-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-lg) 0;
+  gap: 100px;
+}
+
+.nav-column {
+  width: 500px;
+  display: flex;
+  justify-self: flex-end;
+  align-items: center;
+}
+
+.right-align {
+  display: flex;
+  justify-self: flex-end;
+  justify-content: flex-end;
+  text-align: end;
+}
+
+.menu {
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, fill 0.3s ease;
+
+  path {
+    stroke: var(--color-text);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+  }
+  &:hover {
+    path {
+      stroke: var(--color-primary);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .top-nav {
+    height: 10rem;
   }
 
-  .menu-toggle {
+  app-nav {
     display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--color-text);
-    transition: color 0.3s ease-in-out;
-
-    &:hover {
-      cursor: pointer;
-      color: var(--color-primary);
-    }
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.15);
   }
 
-  .nav-links {
-    display: flex;
-    gap: var(--spacing-lg);
-    list-style: none;
-
-    a {
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      transition: color 0.2s ease-in-out;
-
-      &:hover {
-        text-decoration: none;
-        color: var(--color-primary);
-      }
-    }
+  app-nav.mobile-visible {
+    display: block;
   }
 
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
-
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      // background-color: var(--color-bg);
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      flex-direction: column;
-      align-items: flex-end;
-      width: 100%;
-      padding: 0; // start collapsed
-      box-shadow: 0 10px 15px -15px var(--color-primary);
-      pointer-events: none;
-      transition: all 0.3s ease;
-
-      &.open {
-        opacity: 0.9;
-        max-height: 300px;
-        padding: var(--spacing-lg);
-        pointer-events: auto;
-      }
-
-      li {
-        margin: var(--spacing-xs) 0;
-      }
-
-      a {
-        color: var(--color-text);
-      }
-    }
+  .menu {
+    display: block;
   }
 }
