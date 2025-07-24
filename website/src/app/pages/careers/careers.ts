@@ -18,6 +18,54 @@ export class Careers implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.splitText();
+    this.disciplinesAnimations();
+    this.whyRadixAnimations();
+  }
+
+  private splitText() {
+    const split = (id: string, className: string) => {
+      const el = this.document.getElementById(id);
+      if (!el) return;
+      const chars = el?.textContent?.split('') || [];
+      el.innerHTML = chars
+        .map(
+          (c) => `<span class="${className}">${c === '' ? '&nbsp;' : c}</span>`
+        )
+        .join('');
+    };
+
+    split('disciplines', 'disciplines-letter');
+    split('why-radix', 'why-letter');
+  }
+
+  private whyRadixAnimations() {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.careers-why',
+        start: 'top 70%',
+        markers: true,
+      },
+    });
+    tl.from('.why-letter', {
+      opacity: 0,
+      scale: 0.8,
+      delay: 1,
+      y: 20,
+      stagger: 0.05,
+      duration: 0.2,
+      ease: 'power2.out',
+    });
+    tl.from('.why-row', {
+      opacity: 0,
+      scale: 0.8,
+      x: 20,
+      stagger: 0.3,
+      duration: 1,
+      ease: 'power2.out',
+    });
+  }
+
+  private disciplinesAnimations() {
     const groups = this.document.querySelectorAll('.discipline-group');
 
     groups.forEach((group) => {
@@ -34,7 +82,7 @@ export class Careers implements AfterViewInit {
             gsap.to(subItems, {
               height: 0,
               opacity: 0,
-              duration: 0.4,
+              duration: 0.2,
               ease: 'power2.inOut',
             });
             header.classList.remove('open');
@@ -65,40 +113,25 @@ export class Careers implements AfterViewInit {
         start: 'top 70%',
       },
     });
-    disciplinesTl.from('.disciplines-letter', {
-      opacity: 0,
-      scale: 0.8,
-      delay: 1,
-      y: 20,
-      stagger: 0.05,
-      duration: 0.6,
-      ease: 'power2.out',
-    });
+    // disciplinesTl.from('.disciplines-letter', {
+    //   opacity: 0,
+    //   scale: 0.8,
+    //   delay: 1,
+    //   y: 20,
+    //   stagger: 0.05,
+    //   duration: 0.2,
+    //   ease: 'power2.out',
+    // });
     disciplinesTl.fromTo(
       '.disciplines-list',
       {
-        y: 40,
+        y: 10,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.2,
         ease: 'power2.out',
       },
       { y: 0, opacity: 1 },
       '>' // Start after scrambleText
     );
-  }
-
-  private splitText() {
-    const split = (id: string, className: string) => {
-      const el = this.document.getElementById(id);
-      if (!el) return;
-      const chars = el?.textContent?.split('') || [];
-      el.innerHTML = chars
-        .map(
-          (c) => `<span class="${className}">${c === '' ? '&nbsp;' : c}</span>`
-        )
-        .join('');
-    };
-
-    split('disciplines', 'disciplines-letter');
   }
 }
