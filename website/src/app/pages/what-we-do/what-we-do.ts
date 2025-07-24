@@ -6,145 +6,137 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { Footer } from '../../components/footer/footer';
+import { CommonModule } from '@angular/common';
+
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { OrbitControls } from 'three/examples/jsm/Addons.js';
 
-// import { DOCUMENT } from '@angular/common';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-// import ScrollToPlugin from 'gsap/ScrollToPlugin';
-// import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
-// import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
-gsap.registerPlugin(
-  //   MorphSVGPlugin,
-  ScrollTrigger
-  //   ScrambleTextPlugin,
-  //   ScrollToPlugin
-);
+import { Capability } from '../../interfaces/capability';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-what-we-do',
-  imports: [Footer],
+  imports: [CommonModule],
   templateUrl: './what-we-do.html',
   styleUrl: './what-we-do.scss',
 })
-export class WhatWeDo implements AfterViewInit, OnDestroy {
-  @ViewChild('three', { static: false }) threeContainer!: ElementRef;
-
-  private renderer!: THREE.WebGLRenderer;
-  private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera;
-  private model!: THREE.Object3D;
-  private frameId: number = 0;
-
-  ngAfterViewInit() {
-    this.initThree();
+export class WhatWeDo {
+  modalOpen = false;
+  selectedCapability: Capability | null = null;
+  capabilities: Capability[] = [
+    {
+      title: 'S&C',
+      description: 'Deliver clean, credible, resilient data automatically.',
+      icon: `<svg><!-- your full S&C svg string here --></svg>`,
+    },
+    // Add ACT, DSO, CEW similarly
+  ];
+  openModal(cap: Capability) {
+    this.selectedCapability = cap;
+    this.modalOpen = true;
+    // document.body.style.overflow = 'hidden !important';
   }
-
-  ngOnDestroy(): void {
-    cancelAnimationFrame(this.frameId);
-    this.renderer.dispose();
+  closeModal() {
+    this.modalOpen = false;
+    // document.body.style.overflow = '';
   }
-
-  private initThree() {
-    const container = document.getElementById('three')!;
-    const width = container.clientWidth;
-    const height = container.clientHeight || 400;
-
-    this.scene = new THREE.Scene();
-    // this.scene.background = new THREE.Color(0x000000);
-
-    this.camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
-    this.camera.position.set(-5, 0, 30);
-
-    this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    this.renderer.setSize(width, height);
-    container.appendChild(this.renderer.domElement);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
-    directionalLight.position.set(10, 50, 50);
-    this.scene.add(ambientLight, directionalLight);
-
-    // const controls = new OrbitControls(this.camera, this.renderer.domElement);
-    // controls.enableDamping = true;
-
-    const loader = new GLTFLoader();
-    loader.load('../../../assets/models/satellite-1.glb', (gltf) => {
-      this.model = gltf.scene;
-      this.model.position.set(230, 0, 0); // starts off screen
-      this.model.rotation.set(3, 1, 4);
-      this.model.scale.set(1, 1, 1);
-      // this.model.rotation.x = Math.PI / 1;
-      // this.model.rotation.y = Math.PI / 1;
-      this.scene.add(this.model);
-
-      // Animate after 500ms
-      gsap.to(this.model.position, {
-        x: 2,
-        duration: 3,
-        delay: 0.5,
-        ease: 'power2.inOut',
-      });
-
-      gsap.to(this.model.position, {
-        y: -1,
-        scrollTrigger: {
-          trigger: '#three', // Make sure this ID exists
-          start: '45% center',
-          end: 'bottom center',
-          scrub: true,
-        },
-      });
-      gsap.to(this.model.scale, {
-        x: 0.9,
-        y: 0.9,
-        z: 0.9,
-        scrollTrigger: {
-          trigger: '#three', // Make sure this ID exists
-          start: '45% center',
-          end: 'bottom center',
-          scrub: true,
-        },
-      });
-    });
-
-    window.addEventListener('resize', () => {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
-
-      this.camera.aspect = width / height;
-      this.camera.updateProjectionMatrix();
-
-      this.renderer.setSize(width, height);
-    });
-
-    const animate = () => {
-      this.frameId = requestAnimationFrame(animate);
-      if (this.model) this.model.rotation.y += 0.001;
-      // if (this.model) this.model.rotation.x += 0.005;
-      // controls.update();
-      this.renderer.render(this.scene, this.camera);
-    };
-    animate();
-  }
-
+  // @ViewChild('three', { static: false }) threeContainer!: ElementRef;
+  // private renderer!: THREE.WebGLRenderer;
+  // private scene!: THREE.Scene;
+  // private camera!: THREE.PerspectiveCamera;
+  // private model!: THREE.Object3D;
+  // private frameId: number = 0;
+  // ngAfterViewInit() {
+  //   this.initThree();
+  // }
+  // ngOnDestroy(): void {
+  //   cancelAnimationFrame(this.frameId);
+  //   this.renderer.dispose();
+  // }
+  // private initThree() {
+  //   const container = document.getElementById('three')!;
+  //   const width = container.clientWidth;
+  //   const height = container.clientHeight || 400;
+  //   this.scene = new THREE.Scene();
+  //   // this.scene.background = new THREE.Color(0x000000);
+  //   this.camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 1000);
+  //   this.camera.position.set(-5, 0, 30);
+  //   this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  //   this.renderer.setSize(width, height);
+  //   container.appendChild(this.renderer.domElement);
+  //   const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  //   const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
+  //   directionalLight.position.set(10, 50, 50);
+  //   this.scene.add(ambientLight, directionalLight);
+  //   // const controls = new OrbitControls(this.camera, this.renderer.domElement);
+  //   // controls.enableDamping = true;
+  //   const loader = new GLTFLoader();
+  //   loader.load('../../../assets/models/satellite-1.glb', (gltf) => {
+  //     this.model = gltf.scene;
+  //     this.model.position.set(230, 0, 0); // starts off screen
+  //     this.model.rotation.set(3, 1, 4);
+  //     this.model.scale.set(1, 1, 1);
+  //     // this.model.rotation.x = Math.PI / 1;
+  //     // this.model.rotation.y = Math.PI / 1;
+  //     this.scene.add(this.model);
+  //     // Animate after 500ms
+  //     gsap.to(this.model.position, {
+  //       x: 2,
+  //       duration: 3,
+  //       delay: 0.5,
+  //       ease: 'power2.inOut',
+  //     });
+  //     gsap.to(this.model.position, {
+  //       y: -1,
+  //       scrollTrigger: {
+  //         trigger: '#three', // Make sure this ID exists
+  //         start: '45% center',
+  //         end: 'bottom center',
+  //         scrub: true,
+  //       },
+  //     });
+  //     gsap.to(this.model.scale, {
+  //       x: 0.9,
+  //       y: 0.9,
+  //       z: 0.9,
+  //       scrollTrigger: {
+  //         trigger: '#three', // Make sure this ID exists
+  //         start: '45% center',
+  //         end: 'bottom center',
+  //         scrub: true,
+  //       },
+  //     });
+  //   });
+  //   window.addEventListener('resize', () => {
+  //     const width = container.clientWidth;
+  //     const height = container.clientHeight;
+  //     this.camera.aspect = width / height;
+  //     this.camera.updateProjectionMatrix();
+  //     this.renderer.setSize(width, height);
+  //   });
+  //   const animate = () => {
+  //     this.frameId = requestAnimationFrame(animate);
+  //     if (this.model) this.model.rotation.y += 0.001;
+  //     // if (this.model) this.model.rotation.x += 0.005;
+  //     // controls.update();
+  //     this.renderer.render(this.scene, this.camera);
+  //   };
+  //   animate();
+  // }
   // constructor(@Inject(DOCUMENT) private document: Document) {}
   // ngAfterViewInit(): void {
   //   const tl = gsap.timeline();
   //   const groups = this.document.querySelectorAll('.discipline-group');
-
   //   groups.forEach((group) => {
   //     const header = group.querySelector('.discipline-header');
   //     const subItems = group.querySelector('.sub-items') as HTMLElement;
-
   //     let isOpen = false;
-
   //     if (header && subItems) {
   //       gsap.set(subItems, { height: 0, opacity: 0 });
-
   //       header.addEventListener('click', () => {
   //         if (isOpen) {
   //           gsap.to(subItems, {
@@ -156,7 +148,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //           header.classList.remove('open');
   //         } else {
   //           const fullHeight = subItems.scrollHeight;
-
   //           gsap.to(subItems, {
   //             height: fullHeight,
   //             opacity: 1,
@@ -166,15 +157,12 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //               subItems.style.height = 'auto'; // unlock height
   //             },
   //           });
-
   //           header.classList.add('open');
   //         }
-
   //         isOpen = !isOpen;
   //       });
   //     }
   //   });
-
   //   tl.from(
   //     '.blobA',
   //     {
@@ -217,7 +205,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //       },
   //       0.8
   //     );
-
   //   gsap.to('#mission', {
   //     scrollTrigger: {
   //       trigger: '#mission',
@@ -238,7 +225,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //         yoyo: true,
   //         ease: 'none',
   //       });
-
   //       gsap.fromTo(
   //         '#mission-paragraph',
   //         {
@@ -254,7 +240,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //       );
   //     },
   //   });
-
   //   // Core Capabilities Scroll Animation
   //   gsap
   //     .timeline({
@@ -280,7 +265,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //       },
   //       '+=0.2'
   //     ); // slight pause after title
-
   //   // Shapes for blobA
   //   const shapesA = [
   //     '#blob1',
@@ -292,7 +276,6 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //     '#blob7',
   //     '#blob8',
   //   ];
-
   //   // Shapes for blobB
   //   const shapesB = [
   //     '#blob1',
@@ -304,18 +287,14 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //     '#blob7',
   //     '#blob8',
   //   ];
-
   //   const animateBlob = (pathId: string, shapes: string[]) => {
   //     let lastIndex = 0;
-
   //     function morph() {
   //       let nextIndex;
   //       do {
   //         nextIndex = Math.floor(Math.random() * shapes.length);
   //       } while (nextIndex === lastIndex);
-
   //       lastIndex = nextIndex;
-
   //       gsap.to(pathId, {
   //         duration: 6,
   //         ease: 'sine.inOut',
@@ -323,10 +302,8 @@ export class WhatWeDo implements AfterViewInit, OnDestroy {
   //         onComplete: morph,
   //       });
   //     }
-
   //     morph();
   //   };
-
   //   animateBlob('#blobA', shapesA);
   //   animateBlob('#blobB', shapesB);
   // }

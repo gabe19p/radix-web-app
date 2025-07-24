@@ -43,7 +43,6 @@ export class Careers implements AfterViewInit {
       scrollTrigger: {
         trigger: '.careers-why',
         start: 'top 70%',
-        markers: true,
       },
     });
     tl.from('.why-letter', {

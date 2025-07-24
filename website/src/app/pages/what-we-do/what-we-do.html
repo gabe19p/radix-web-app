@@ -1,4 +1,4 @@
-<div class="hero">
+<!-- <div class="hero">
   <div class="hero-wrapper container-lg">
     <h1 class="hero-title">Our Capabilities</h1>
     <h2>Mission Supremacy</h2>
@@ -45,10 +45,10 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<!-- <section class="what-we-do-hero">
-  <svg
+<section class="what-we-do-hero container-md raised">
+  <!-- <svg
     viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg"
     class="blob-svg blobA"
@@ -73,7 +73,6 @@
       fill="url(#blob-gradient-a)"
       filter="url(#glow-a)"
     />
-
 
     <path
       id="blob1"
@@ -122,7 +121,6 @@
       filter="url(#glow-b)"
     />
 
-
     <path
       id="blob5"
       d="M52,6 C76,10 96,28 88,56 C80,84 54,98 30,86 C6,74 6,48 20,28 C34,8 42,4 52,6 Z"
@@ -143,20 +141,35 @@
       d="M50,8 C70,14 92,30 84,58 C76,86 58,92 34,84 C10,76 8,56 16,34 C24,12 30,4 50,8 Z"
       style="display: none"
     />
-  </svg>
-  <div class="hero-wrapper container">
+  </svg> -->
+
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="../../../assets/videos/data2.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="hero-wrapper">
     <h1 class="hero-title">
       <span id="heroText">Our Domains of Expertise</span>
     </h1>
     <p>Building What Matters - Where It Matters.</p>
-
   </div>
 </section>
 
 <section class="what-we-do-capabilities">
-  <div class="capabilities-wrapper container">
+  <div class="capabilities-wrapper container-md">
     <h1 class="capabilities-title">Core Capabilities</h1>
-    <div class="capabilities-grid">
+    <div
+      class="capability"
+      *ngFor="let cap of capabilities"
+      (click)="openModal(cap)"
+    >
+      <div class="sphere" [innerHTML]="cap.icon"></div>
+      <h2 class="underline">{{ cap.title }}</h2>
+      <p>{{ cap.description }}</p>
+    </div>
+
+    <!-- <div class="capabilities-grid">
       <div class="capability">
         <div class="sphere">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -326,12 +339,15 @@
         <h2 class="underline">CEW</h2>
         <p>Develop adaptive waveforms for EW training and ops.</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
-<section class="what-we-do-cta">
-  <img src="../../../assets/acs.jpg" alt="" />
+<section class="what-we-do-cta container-md raised">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="../../../assets/videos/data.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
   <div class="cta-wrapper container">
     <h1 class="cta-title">
       <span id="ctaText">Creating Space for Change</span>
@@ -340,6 +356,17 @@
       <a href="/careers" class="cta-button">Explore Opportunities</a>
     </div>
   </div>
-</section> -->
+</section>
 
-<app-footer></app-footer>
+<!-- Modal overlay -->
+<div class="capability-modal-backdrop" *ngIf="modalOpen" (click)="closeModal()">
+  <div class="capability-modal" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeModal()">×</button>
+    <div class="modal-icon" *ngIf="selectedCapability?.icon">
+      <div [innerHTML]="selectedCapability?.icon"></div>
+    </div>
+    <h2>{{ selectedCapability?.title }}</h2>
+    <p>{{ selectedCapability?.description }}</p>
+    <div class="modal-cta">Learn More</div>
+  </div>
+</div>

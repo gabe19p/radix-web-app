@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopNav } from './components/top-nav/top-nav';
-import { ModelService } from './services/model';
+
 import { Footer } from './components/footer/footer';
 
 @Component({
@@ -13,12 +13,7 @@ import { Footer } from './components/footer/footer';
 export class App {
   protected title = 'website';
 
-  constructor(private modelService: ModelService) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.modelService
-      .preloadModel('/assets/models/piece.glb')
-      .then(() => console.log('Model preloaded!'))
-      .catch((err) => console.error('Failed to preload model:', err));
-  }
+  ngOnInit() {}
 }
