@@ -6,10 +6,6 @@
   width: 100%;
 }
 
-.logo {
-  color: var(--color-primary);
-}
-
 .nav-row {
   width: 100%;
   display: flex;
@@ -23,6 +19,15 @@
   display: flex;
   justify-self: flex-end;
   align-items: center;
+}
+
+.logo {
+  color: var(--color-primary);
+}
+
+.company {
+  margin: 0 var(--spacing-sm);
+  font-family: "Times New Roman", Times, serif;
 }
 
 .right-align {
