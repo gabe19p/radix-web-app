@@ -1,5 +1,4 @@
-<div class="footer">
-  <!-- top row -->
+<!-- <div class="footer">
   <div class="footer-row">
     <div class="footer-column">
       <h4>Follow Us</h4>
@@ -18,10 +17,104 @@
       <p>city</p>
     </div>
   </div>
-  <!-- bottom row -->
   <div class="footer-row">
     <div class="footer-column">
       <p class="copyright">©2022 by Radix Metasystems, Inc.</p>
     </div>
   </div>
-</div>
+</div> -->
+
+<section class="footer container-lg">
+  <div class="footer-row" style="padding: var(--spacing-xxl) 0">
+    <div class="footer-column">
+      <div class="footer-title">Connect</div>
+      <div class="footer-content">
+        <p>link</p>
+        <p>link</p>
+        <p>link</p>
+        <p>link</p>
+      </div>
+    </div>
+    <div class="footer-column">
+      <div class="footer-title">NAICS Codes</div>
+      <div class="footer-content">
+        <p>541511</p>
+        <p>518210</p>
+        <p>541330</p>
+        <p>541512</p>
+        <p>541519</p>
+        <p>541715</p>
+      </div>
+    </div>
+    <div class="footer-column">
+      <div class="footer-title">Company Presence</div>
+      <div class="footer-content">
+        <p>Aurora, CO</p>
+        <p>Littleton, CO</p>
+        <p>Las Cruces, NM</p>
+        <p>Omaha, NE</p>
+        <p>Fairfax, VA</p>
+        <p>San Antonio, TX</p>
+        <p>Chantilly, VA</p>
+      </div>
+    </div>
+    <div class="footer-column">
+      <div class="footer-title">Company Headquarters</div>
+      <div class="footer-content">
+        <p>325 Inverness Dr. S.</p>
+        <p>Englewood, CO 80112</p>
+        <p>See On Map ^</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-row" style="align-items: center">
+    <div class="footer-column">
+      <p class="copyright">©2022 by Radix Metasystems, Inc.</p>
+    </div>
+    <div class="footer-column">
+      <!-- nav -->
+      <div class="nav-wrapper">
+        <a
+          class="nav-link"
+          routerLink="/who-we-are"
+          [ngClass]="{'active': currentRoute === '/who-we-are'}"
+          >Who We Are</a
+        >
+        <a
+          class="nav-link"
+          routerLink="/what-we-do"
+          [ngClass]="{'active': currentRoute === '/what-we-do'}"
+          >What We Do</a
+        >
+        <a
+          class="nav-link"
+          routerLink="/careers"
+          [ngClass]="{'active': currentRoute === '/careers'}"
+          >Careers</a
+        >
+      </div>
+    </div>
+    <div
+      class="footer-column right-align"
+      role="button"
+      aria-label="Scroll to top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="50px"
+        height="50px"
+        viewBox="-0.5 0 25 25"
+        fill="none"
+        (click)="scrollToTop()"
+        class="scroll-to-top"
+      >
+        <path
+          d="M12 22.4199C17.5228 22.4199 22 17.9428 22 12.4199C22 6.89707 17.5228 2.41992 12 2.41992C6.47715 2.41992 2 6.89707 2 12.4199C2 17.9428 6.47715 22.4199 12 22.4199Z"
+        />
+        <path
+          d="M8 13.8599L10.87 10.8C11.0125 10.6416 11.1868 10.5149 11.3815 10.4282C11.5761 10.3415 11.7869 10.2966 12 10.2966C12.2131 10.2966 12.4239 10.3415 12.6185 10.4282C12.8132 10.5149 12.9875 10.6416 13.13 10.8L16 13.8599"
+        />
+      </svg>
+    </div>
+  </div>
+</section>
