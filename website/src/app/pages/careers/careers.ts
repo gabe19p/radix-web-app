@@ -4,12 +4,11 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
-import { Footer } from '../../components/footer/footer';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 @Component({
   selector: 'app-careers',
-  imports: [CommonModule, Footer],
+  imports: [CommonModule],
   templateUrl: './careers.html',
   styleUrl: './careers.scss',
 })
