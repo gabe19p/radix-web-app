@@ -1,29 +1,14 @@
 <div class="full-page" id="full-page" #fullPage>
-  <!-- <canvas id="bg-three" #bgThree></canvas> -->
-  <section class="who-we-are-hero">
+  <section class="who-we-are-hero container-md raised">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="../../../assets/videos/globe.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
     <div class="hero-wrapper container-lg">
       <h1 class="hero-title">
         <div id="heroText">The Missing Piece to the Mission</div>
       </h1>
-    </div>
-  </section>
-
-  <section class="who-we-are-mission">
-    <div class="mission-wrapper container-sm">
-      <div class="mission-statement">
-        <h1><span id="mission">Our Mission</span></h1>
-        <p id="mission-paragraph">
-          Be the force multiplier equipping policymakers and warfighters with
-          cutting-edge tools, technologies, and techniques—where intelligent
-          engineering is our edge, innovation is our strength, and our team
-          shapes the digital battlespace.
-        </p>
-      </div>
-      <canvas
-        class="support-graphic"
-        id="mission-graphic"
-        #missionGraphic
-      ></canvas>
     </div>
   </section>
 
@@ -76,18 +61,24 @@
     </div>
   </section>
 
-  <section class="who-we-are-vision">
-    <div class="vision-wrapper container-sm">
-      <div class="vision-statement">
-        <h1><span id="vision">Our Vision</span></h1>
-        <p id="vision-paragraph">
-          To be the leader of next generation intelligence and defense
-          solutions, delivering capabilities that outclass our adversaries
-          across all domains.
+  <section class="who-we-are-mission">
+    <div class="mission-wrapper container-md">
+      <div class="mission-statement">
+        <h1><span id="mission">Our Mission</span></h1>
+        <p id="mission-paragraph">
+          Be the force multiplier equipping policymakers and warfighters with
+          cutting-edge tools, technologies, and techniques—where intelligent
+          engineering is our edge, innovation is our strength, and our team
+          shapes the digital battlespace.
         </p>
       </div>
-
-      <canvas class="support-graphic" id="vision-graph" #visionGraphic></canvas>
+      <div>
+        <img
+          src="../../../assets/sac.jpg"
+          alt=""
+          style="object-fit: contain; height: 200px"
+        />
+      </div>
     </div>
   </section>
 
@@ -107,6 +98,27 @@
             <p>{{ item.statement }}</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-we-are-vision">
+    <div class="vision-wrapper container-md">
+      <div class="vision-statement">
+        <h1><span id="vision">Our Vision</span></h1>
+        <p id="vision-paragraph">
+          To be the leader of next generation intelligence and defense
+          solutions, delivering capabilities that outclass our adversaries
+          across all domains.
+        </p>
+      </div>
+
+      <div>
+        <img
+          src="../../../assets/sac.jpg"
+          alt=""
+          style="object-fit: contain; height: 200px"
+        />
       </div>
     </div>
   </section>
