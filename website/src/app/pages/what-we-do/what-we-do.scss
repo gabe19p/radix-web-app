@@ -2,156 +2,6 @@ section {
   padding: var(--spacing-lg) 0;
 }
 
-.hero {
-  height: 100vh;
-
-  .hero-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    height: 100%;
-    color: var(--color-font);
-
-    h1 {
-      font-size: 8rem;
-    }
-
-    h2 {
-      font-size: 3rem;
-    }
-
-    p {
-      max-width: 500px;
-    }
-  }
-
-  .three {
-    width: 100%;
-    aspect-ratio: 1.5; // adjusts height based on width — you can tweak
-    position: absolute;
-    top: 0;
-    z-index: 10;
-
-    canvas {
-      width: 100% !important;
-      height: 100% !important;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
-  }
-}
-
-.domain-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  padding: var(--spacing-md) 0;
-  z-index: 0;
-
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-.domain-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 300px; // fallback
-  box-shadow: 0 0 8px -5px var(--color-primary);
-  transition: box-shadow 0.3s ease-in-out;
-
-  @supports (aspect-ratio: 1) {
-    aspect-ratio: 3 / 2;
-    height: auto; // override fallback height
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.8s ease;
-  }
-
-  .overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  &:hover {
-    box-shadow: 0 0 12px -7px var(--color-primary);
-  }
-
-  &:hover img {
-    transform: scale(1.05);
-  }
-
-  &:hover .overlay {
-    opacity: 1;
-  }
-
-  .domain-text {
-    font-weight: var(--font-weight-sm);
-    font-size: var(--font-lg);
-    color: var(--color-text);
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    transition: color 0.3s ease-in-out;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 100%;
-      height: 2px;
-      background-color: var(--color-primary);
-      transform: translateX(-50%) scaleX(0);
-      transform-origin: center;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover {
-      color: var(--color-primary);
-
-      &::after {
-        transform: translateX(-50%) scaleX(1);
-      }
-    }
-  }
-
-  @media (max-width: 599px) {
-    .overlay {
-      background: none;
-      opacity: 1;
-      padding-top: var(--spacing-sm);
-    }
-
-    .domain-text {
-      position: static;
-      opacity: 1;
-      text-align: center;
-      padding: var(--spacing-sm);
-    }
-
-    &:hover img {
-      transform: none;
-    }
-  }
-}
-
 .what-we-do-hero {
   position: relative;
   width: 100%;
@@ -174,32 +24,6 @@ section {
     opacity: 0.3;
   }
 
-  .blob-svg {
-    position: absolute;
-    width: 1000px;
-    height: 1000px;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-  }
-
-  .blobA {
-    top: 40%;
-    left: 60%;
-    opacity: 0.5;
-    mix-blend-mode: screen;
-    transform: scale(1.1);
-    z-index: 0;
-  }
-
-  .blobB {
-    top: 90%;
-    right: 65%;
-    opacity: 0.5;
-    mix-blend-mode: screen;
-    transform-origin: center;
-  }
-
   .hero-wrapper {
     transform: translateY(-20%);
     display: flex;
@@ -219,7 +43,6 @@ section {
 }
 
 .what-we-do-capabilities {
-  height: 100vh;
   padding: var(--spacing-xxl) 0;
   display: flex;
 
@@ -249,36 +72,31 @@ section {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-lg);
 
-      .sphere svg {
-        padding: var(--spacing-md);
-        width: 100%;
-        height: 100%;
+      .title {
+        font-family: var(--font-alt);
+        font-weight: var(--font-weight-md);
+        font-size: var(--font-md);
+      }
+
+      .sphere {
         stroke: var(--color-bg-secondary);
         fill: var(--color-bg-secondary);
-        filter: drop-shadow(0 0 2px var(--color-bg-secondary));
-        transition: stroke 0.3s, fill 0.3s, filter 0.3s;
+        width: var(--spacing-xxl);
+        height: var(--spacing-xxl);
+        border-radius: 50%;
+        background: var(--color-text);
+        transition: all 0.3s ease-in-out;
+        padding: var(--spacing-md);
       }
 
-      .sphere svg:hover {
+      .sphere:hover {
         stroke: var(--color-primary);
         fill: var(--color-primary);
-        filter: drop-shadow(0 0 2px var(--color-primary));
+        cursor: pointer;
+        scale: 1.1;
       }
-    }
-
-    .sphere {
-      width: var(--spacing-xxl);
-      height: var(--spacing-xxl);
-      border-radius: 50%;
-      background: var(--color-text);
-      transition: scale 0.3s ease-in-out;
-    }
-
-    .sphere:hover {
-      cursor: pointer;
-      scale: 1.1;
     }
   }
 }
@@ -337,77 +155,5 @@ section {
         transform: scale(1.05);
       }
     }
-  }
-}
-
-.capability-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.capability-modal {
-  background: rgba(30, 30, 30, 0.95);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 600px;
-  width: 90%;
-  color: white;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
-
-  h2 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-
-  .modal-icon {
-    max-width: 100px;
-    margin: 0 auto 1rem;
-
-    svg {
-      width: 100%;
-      height: 100%;
-      fill: var(--color-primary);
-    }
-  }
-
-  .modal-cta {
-    display: inline-block;
-    padding: 0.6rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    background-color: var(--color-primary);
-    border-radius: 100px;
-    text-decoration: none;
-    transition: all 250ms ease-in-out;
-    box-shadow: rgba(247, 109, 29, 0.2) 0 -25px 18px -14px inset,
-      rgba(247, 109, 29, 0.1) 0 1px 2px, rgba(247, 109, 29, 0.1) 0 2px 4px,
-      rgba(247, 109, 29, 0.1) 0 4px 8px, rgba(247, 109, 29, 0.1) 0 8px 16px;
-
-    &:hover {
-      background-color: rgba(247, 109, 29, 0.2);
-      color: var(--color-primary);
-      cursor: pointer;
-      transform: scale(1.05);
-    }
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
   }
 }

@@ -16,5 +16,5 @@ export const routes: Routes = [
   { path: 'what-we-do', component: WhatWeDo },
   { path: 'careers', component: Careers },
   { path: 'who-we-are/leadership', component: Leadership },
-  { path: 'capabilities', component: CapabilityPage },
+  { path: 'capabilities/:id', component: CapabilityPage },
 ];
