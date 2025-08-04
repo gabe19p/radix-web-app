@@ -1,0 +1,49 @@
+.testimonial-wrapper {
+  width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .testimonial-photo {
+    transform: translateY(50%);
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100%;
+    box-shadow: 0 0 5px -1px var(--color-bg);
+    img {
+      width: 100px;
+      height: 100px;
+      scale: 1.1;
+    }
+  }
+
+  .testimonial-content {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background-color: var(--color-text);
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: var(--spacing-sm);
+
+    .quote-graphic {
+      fill: var(--color-bg-secondary);
+      opacity: 0.5;
+    }
+
+    .quote {
+      font-style: italic;
+      color: var(--color-bg);
+    }
+
+    .person-info {
+      text-align: end;
+      color: var(--color-primary);
+    }
+  }
+}
