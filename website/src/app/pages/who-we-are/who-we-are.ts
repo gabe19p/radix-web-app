@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './who-we-are.html',
   styleUrl: './who-we-are.scss',
 })
-export class WhoWeAre implements OnInit, OnDestroy {
+export class WhoWeAre implements AfterViewInit, OnDestroy {
   @ViewChildren('partnerEl') partnerEls!: QueryList<ElementRef>;
   @ViewChildren('cultureSlide', { read: ElementRef })
   cultureSlides!: QueryList<ElementRef>;
@@ -119,14 +119,17 @@ export class WhoWeAre implements OnInit, OnDestroy {
   cultureIndex = 0;
   intervalId: any;
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.splitText();
     this.setupGsapAnimations();
     this.startCultureCarousel();
+
+    setTimeout(() => ScrollTrigger.refresh(), 100);
   }
 
   ngOnDestroy() {
     clearInterval(this.intervalId);
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }
 
   private setupGsapAnimations() {
