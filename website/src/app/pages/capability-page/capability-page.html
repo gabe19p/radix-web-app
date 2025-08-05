@@ -1,4 +1,4 @@
-<section class="capability-hero container-md raised" *ngIf="capability">
+<section class="capability-hero" *ngIf="capability">
   <video autoplay muted loop playsinline class="bg-video">
     <source [src]="capability.video" type="video/mp4" />
     Your browser does not support the video tag.
@@ -10,6 +10,9 @@
     </h1>
   </div>
 </section>
+
+<!-- Spacer to push next section down -->
+<div style="height: 100vh; background-color: transparent !important"></div>
 
 <section class="capability-details container-md">
   <div class="detail-wrapper">

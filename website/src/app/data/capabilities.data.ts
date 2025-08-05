@@ -21,7 +21,7 @@ export const capabilities = [
       'By automating data evaluation, prioritization, and anomaly detection, S&C provides a streamlined approach to consuming and maintaining clean reliable data.',
     ],
     image: 'assets/sac.jpg',
-    video: 'assets/videos/data2.mp4',
+    video: 'assets/videos/sc (blue).mp4',
     icon: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g
@@ -48,7 +48,7 @@ export const capabilities = [
       'Supports time-restricted critical decisions by reducing decision cycle time and enabling a competitive edge.',
     ],
     image: 'assets/act.jpg',
-    video: 'assets/videos/data2.mp4',
+    video: 'assets/videos/act.mp4',
     icon: `          <svg
             version="1.1"
             id="Capa_1"
@@ -85,7 +85,7 @@ export const capabilities = [
       'Our team develops mission software, troubleshoots, and integrates niche operational capabilities into government satellite systems.',
     ],
     image: 'assets/dso.jpg',
-    video: 'assets/videos/data.mp4',
+    video: 'assets/videos/dso.mp4',
     icon: `<svg
             version="1.1"
             id="_x32_"
@@ -148,7 +148,7 @@ export const capabilities = [
       'AI/ML-enabled morphing waveform for communications and enemy identification.',
     ],
     image: 'assets/cew.jpg',
-    video: 'assets/videos/data.mp4',
+    video: 'assets/videos/cew.mp4',
     icon: `<svg
             version="1.1"
             id="Layer_1"
