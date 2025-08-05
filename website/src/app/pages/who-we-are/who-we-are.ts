@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { SvgList, svgList as rawSvgList } from '../../data/svg.data';
+import { DomSanitizer } from '@angular/platform-browser';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +25,21 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './who-we-are.scss',
 })
 export class WhoWeAre implements AfterViewInit, OnDestroy {
+  svgList: SvgList;
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.svgList = Object.fromEntries(
+      Object.entries(rawSvgList).map(([key, value]) => [
+        key,
+        {
+          ...value,
+          id: key,
+          icon: this.sanitizer.bypassSecurityTrustHtml(value.icon),
+        },
+      ])
+    );
+  }
+
   @ViewChildren('partnerEl') partnerEls!: QueryList<ElementRef>;
   @ViewChildren('cultureSlide', { read: ElementRef })
   cultureSlides!: QueryList<ElementRef>;
@@ -137,12 +154,20 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
       .timeline({
         scrollTrigger: { trigger: '#heroText', start: 'top center' },
       })
-      .from('.hero-letter', {
+      // .from('.hero-letter', {
+      //   opacity: 0,
+      //   scale: 0.8,
+      //   delay: 1,
+      //   y: 20,
+      //   stagger: 0.05,
+      //   duration: 0.6,
+      //   ease: 'power2.out',
+      // });
+      .from('.hero-title', {
         opacity: 0,
         scale: 0.8,
         delay: 1,
         y: 20,
-        stagger: 0.05,
         duration: 0.6,
         ease: 'power2.out',
       });
