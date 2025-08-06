@@ -1,5 +1,5 @@
 .nav-wrapper {
-  background-color: var(--color-text);
+  background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -22,8 +22,8 @@
     transition: all 250ms ease-in-out;
 
     &:hover {
-      color: var(--color-primary);
-      background-color: rgba(247, 109, 29, 0.2);
+      color: var(--color-text);
+      background-color: rgba(247, 109, 29, 0.4);
     }
 
     &.active {
