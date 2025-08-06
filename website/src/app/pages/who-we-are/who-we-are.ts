@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SvgList, svgList as rawSvgList } from '../../data/svg.data';
+import { leadership, Leader } from '../../data/leadership.data'; // adjust path if needed
 import { DomSanitizer } from '@angular/platform-browser';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -25,6 +26,7 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './who-we-are.scss',
 })
 export class WhoWeAre implements AfterViewInit, OnDestroy {
+  leadership: Leader[] = leadership;
   svgList: SvgList;
 
   constructor(private sanitizer: DomSanitizer) {
@@ -78,45 +80,6 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     {
       headline: 'We are a team of families.',
       statement: 'We actively foster an environment...',
-    },
-  ];
-
-  leadership = [
-    {
-      name: 'Pete Molina',
-      title: 'CEO',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
-    },
-    {
-      name: 'Mike Kritenbrink',
-      title: 'VP',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
-    },
-    {
-      name: 'Amanda Smith',
-      title: 'Director of Sec',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
-    },
-    {
-      name: 'Ricky Kee',
-      title: 'Corporate Director',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
-    },
-    {
-      name: 'Roger Altobelli',
-      title: 'Director of Strat',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
-    },
-    {
-      name: 'Charlie Smith',
-      title: 'Tech Director',
-      photo: '../../../assets/headshots/headshot-pete.png',
-      bio: 'Lorem ipsum dolor sit amet...',
     },
   ];
 

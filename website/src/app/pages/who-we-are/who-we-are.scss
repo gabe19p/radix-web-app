@@ -1,15 +1,4 @@
-section {
-  padding: var(--spacing-lg) 0;
-}
-
 .who-we-are-hero {
-  // position: relative;
-  // width: 100%;
-  // height: 80vh;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // text-align: center;
   padding: 0;
   position: absolute;
   top: 0;
@@ -82,15 +71,11 @@ section {
       h1 {
         font-weight: var(--font-weight-md);
       }
-
-      p {
-        // max-width: 1000px;
-      }
     }
 
     .mission-graphic {
       opacity: 0;
-      transition: opacity 0.3s ease; // optional fallback
+      transition: opacity 0.3s ease;
     }
 
     .support-graphic {
@@ -108,8 +93,6 @@ section {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    // padding: var(--spacing-xl) var(--container-padding);
-    gap: var(--spacing-md);
     position: relative;
     z-index: 10;
 
@@ -137,8 +120,6 @@ section {
         left: 0;
         width: 100%;
         display: flex;
-        // align-items: center;
-        // justify-content: center;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -149,7 +130,6 @@ section {
           height: 300px;
           object-fit: cover;
           border-radius: var(--radius-sm);
-          // margin-right: var(--spacing-lg);
           flex-shrink: 0;
         }
 
@@ -168,17 +148,6 @@ section {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--spacing-xl);
-      margin: var(--spacing-lg) 0;
-
-      @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-lg);
-      }
-
-      @media (max-width: 600px) {
-        gap: var(--spacing-md);
-        grid-template-columns: 1fr;
-      }
 
       .leader-card {
         display: flex;
@@ -235,6 +204,62 @@ section {
   }
 }
 
+// .who-we-are-partners {
+//   padding: 4rem 0;
+
+//   .partners-wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+
+//   .partners-statement {
+//     width: 100%;
+//     text-align: left;
+//   }
+
+//   .partners-grid {
+//     background-color: red;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.5rem;
+//     align-items: center;
+//     width: 100%;
+//     max-width: 1000px;
+//     margin: 0 auto;
+//     padding: var(--spacing-lg) 0;
+
+//     .partners-row {
+//       width: 100%;
+//       gap: 150px;
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: center;
+//     }
+//   }
+
+//   .partner {
+//     width: 125px;
+//     height: 125px;
+//     border-radius: 50%;
+//     background-color: white;
+//     overflow: hidden;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     transition: transform 0.3s ease;
+
+//     img {
+//       width: 70%;
+//       height: 70%;
+//       object-fit: contain;
+//     }
+
+//     &:hover {
+//       transform: scale(1.1);
+//     }
+//   }
+// }
 .who-we-are-partners {
   padding: 4rem 0;
 
@@ -250,29 +275,26 @@ section {
   }
 
   .partners-grid {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    justify-items: center;
+    gap: 2rem; // spacing between rows
     align-items: center;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
+    padding: var(--spacing-lg) 0;
 
     .partners-row {
-      width: 100%;
-      gap: 150px;
       display: flex;
       flex-direction: row;
       justify-content: center;
+      gap: 6rem; // logo spacing
     }
   }
 
   .partner {
-    width: 100px;
-    height: 100px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     background-color: white;
     overflow: hidden;
@@ -303,58 +325,35 @@ section {
   color: var(--color-primary);
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin: var(--spacing-lg) 0;
 }
 
-// .who-we-are-culture {
-//   .culture-wrapper {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     padding: var(--spacing-xl) 0;
-//     gap: var(--spacing-xl);
+//
+// 📱 Media Queries
+//
+@media (max-width: 1024px) {
+  .who-we-are-leadership .leadership-wrapper .leadership-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
 
-//     .culture-title {
-//       color: var(--color-primary);
-//       font-size: var(--font-xxl);
-//     }
+  .who-we-are-partners .partners-grid .partners-row {
+    gap: 3rem;
+  }
 
-//     .carousel {
-//       position: relative;
-//       height: 300px;
-//       width: 100%;
-//       overflow: hidden;
+  .who-we-are-partners .partner {
+    width: 100px;
+    height: 100px;
+  }
+}
 
-//       .carousel-slide {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         opacity: 0;
-//         pointer-events: none;
-//         transition: opacity 0.3s ease;
-//         gap: var(--spacing-lg);
+@media (max-width: 600px) {
+  .who-we-are-partners .partners-grid .partners-row {
+    gap: 1.5rem;
+  }
 
-//         img {
-//           width: 300px;
-//           height: 300px;
-//           object-fit: cover;
-//           border-radius: var(--radius-sm);
-//           // margin-right: var(--spacing-lg);
-//           flex-shrink: 0;
-//         }
-
-//         .text-content {
-//           display: flex;
-//           flex-direction: column;
-//           gap: var(--spacing-sm);
-//           max-width: 500px;
-//         }
-//       }
-//     }
-//   }
-// }
+  .who-we-are-partners .partner {
+    width: 80px;
+    height: 80px;
+  }
+}
