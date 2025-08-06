@@ -1,104 +1,112 @@
-<div class="full-page" id="full-page" #fullPage>
-  <section class="who-we-are-hero">
-    <video autoplay muted loop playsinline class="bg-video">
-      <source src="../../../assets/videos/globe.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+<section class="who-we-are-hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="../../../assets/videos/globe.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-    <div class="hero-wrapper container-lg">
-      <h1 class="hero-title">
-        <div id="heroText">The Missing Piece to the Mission</div>
-      </h1>
-    </div>
-  </section>
+  <div class="hero-wrapper container-lg">
+    <h1 class="hero-title">
+      <div id="heroText">The Missing Piece to the Mission</div>
+    </h1>
+  </div>
+</section>
 
-  <!-- Spacer to push next section down -->
-  <div style="height: 90vh; background-color: transparent !important"></div>
+<!-- Spacer to push next section down -->
+<div style="height: 90vh; background-color: transparent !important"></div>
 
-  <section class="who-we-are-mission">
-    <div class="mission-wrapper container-md">
-      <div class="mission-statement">
-        <h1><span id="mission">Our Mission</span></h1>
-        <p id="mission-paragraph">
-          Be the force multiplier equipping policymakers and warfighters with
-          cutting-edge tools, technologies, and techniques—where intelligent
-          engineering is our edge, innovation is our strength, and our team
-          shapes the digital battlespace.
-        </p>
-      </div>
-      <div>
-        <div class="svg" [innerHTML]="svgList['rocket'].icon"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="who-we-are-leadership">
-    <div class="leadership-wrapper container-md">
-      <h1 class="leadership-title">Leadership</h1>
-      <p class="desc">
-        Dedicated professionals committed to excellence in defense.
+<section class="who-we-are-mission">
+  <div class="mission-wrapper container-md">
+    <div class="mission-statement">
+      <h1><span id="mission">Our Mission</span></h1>
+      <p id="mission-paragraph">
+        Be the force multiplier equipping policymakers and warfighters with
+        cutting-edge tools, technologies, and techniques—where intelligent
+        engineering is our edge, innovation is our strength, and our team shapes
+        the digital battlespace.
       </p>
-      <div class="leadership-grid">
-        <div class="leader-card" *ngFor="let leader of leadership">
-          <img [src]="leader.photo" [alt]="leader.name" />
-          <div class="leader-name">{{ leader.name }}</div>
-          <div class="leader-title">{{ leader.title }}</div>
-          <div class="leader-bio">{{ leader.bio }}</div>
-          <div class="leader-socials">
-            <div class="social">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="24"
-                height="24"
-                viewBox="0 0 50 50"
-                class="icon"
-              >
-                <path
-                  d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
-                ></path>
-              </svg>
-            </div>
-            <div class="social">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                x="0px"
-                y="0px"
-                width="24"
-                height="24"
-                viewBox="0 0 50 50"
-                class="icon"
-              >
-                <path
-                  d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
-                ></path>
-              </svg>
-            </div>
+    </div>
+    <div>
+      <div class="svg" [innerHTML]="svgList['rocket'].icon"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Spacer to push next section down -->
+<div style="height: 20vh; background-color: transparent !important"></div>
+
+<section class="who-we-are-leadership">
+  <div class="leadership-wrapper container-md">
+    <h1 class="header"><span>Company Leadership</span></h1>
+    <p class="desc">
+      Dedicated professionals committed to excellence in defense.
+    </p>
+    <div class="leadership-grid">
+      <div class="leader-card" *ngFor="let leader of leadership">
+        <img [src]="leader.photo" [alt]="leader.name" />
+        <div class="leader-name">{{ leader.name }}</div>
+        <div class="leader-title">{{ leader.title }}</div>
+        <div class="leader-bio">{{ leader.bio }}</div>
+        <div class="leader-socials">
+          <div class="social">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              class="icon"
+            >
+              <path
+                d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"
+              ></path>
+            </svg>
+          </div>
+          <div class="social">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="24"
+              height="24"
+              viewBox="0 0 50 50"
+              class="icon"
+            >
+              <path
+                d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"
+              ></path>
+            </svg>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="who-we-are-vision">
-    <div class="vision-wrapper container-md">
-      <div class="vision-statement">
-        <h1><span id="vision">Our Vision</span></h1>
-        <p id="vision-paragraph">
-          To be the leader of next generation intelligence and defense
-          solutions, delivering capabilities that outclass our adversaries
-          across all domains.
-        </p>
-      </div>
+<!-- Spacer to push next section down -->
+<div style="height: 20vh; background-color: transparent !important"></div>
 
-      <div>
-        <div class="svg" [innerHTML]="svgList['galaxy'].icon"></div>
-      </div>
+<section class="who-we-are-vision">
+  <div class="vision-wrapper container-md">
+    <div class="vision-statement">
+      <h1><span id="vision">Our Vision</span></h1>
+      <p id="vision-paragraph">
+        To be the leader of next generation intelligence and defense solutions,
+        delivering capabilities that outclass our adversaries across all
+        domains.
+      </p>
     </div>
-  </section>
 
-  <section class="who-we-are-culture">
+    <div>
+      <div class="svg" [innerHTML]="svgList['galaxy'].icon"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Spacer to push next section down -->
+<div style="height: 20vh; background-color: transparent !important"></div>
+
+<!-- <section class="who-we-are-culture">
     <div class="culture-wrapper container-md">
       <h1 class="culture-title">Culture</h1>
       <div class="carousel culture-carousel">
@@ -144,31 +152,33 @@
 
       <span class="support-graphic"></span>
     </div>
-  </section>
+  </section> -->
 
-  <section class="who-we-are-partners">
-    <div class="partners-wrapper container-md">
-      <div class="partners-statement">
-        <h1><span id="partners">Trusted Partners</span></h1>
+<section class="who-we-are-partners">
+  <div class="partners-wrapper container-md">
+    <div class="partners-statement">
+      <h1 class="header"><span id="partners">Trusted Partners</span></h1>
 
-        <div class="partners-grid">
-          <div class="partners-row">
-            <div class="partner" *ngFor="let partner of partners | slice:0:3">
-              <img [src]="partner.image" alt="partner logo" />
-            </div>
+      <div class="partners-grid">
+        <div class="partners-row">
+          <div class="partner" *ngFor="let partner of partners | slice:0:3">
+            <img [src]="partner.image" alt="partner logo" />
           </div>
-          <div class="partners-row">
-            <div class="partner" *ngFor="let partner of partners | slice:3:7">
-              <img [src]="partner.image" alt="partner logo" />
-            </div>
+        </div>
+        <div class="partners-row">
+          <div class="partner" *ngFor="let partner of partners | slice:3:7">
+            <img [src]="partner.image" alt="partner logo" />
           </div>
-          <div class="partners-row">
-            <div class="partner" *ngFor="let partner of partners | slice:7:10">
-              <img [src]="partner.image" alt="partner logo" />
-            </div>
+        </div>
+        <div class="partners-row">
+          <div class="partner" *ngFor="let partner of partners | slice:7:10">
+            <img [src]="partner.image" alt="partner logo" />
           </div>
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
+
+<!-- Spacer to push next section down -->
+<div style="height: 20vh; background-color: transparent !important"></div>
