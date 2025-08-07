@@ -35,6 +35,7 @@
     h1 {
       color: var(--color-text);
       font-size: var(--font-xxl);
+      font-family: var(--font-alt);
     }
 
     p {
@@ -312,4 +313,13 @@
       }
     }
   }
+}
+
+.title {
+  text-align: center;
+  color: var(--color-primary);
+  font-family: var(--font-alt);
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-lg);
+  padding: var(--spacing-xl) 0;
 }

@@ -46,42 +46,42 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
   @ViewChildren('cultureSlide', { read: ElementRef })
   cultureSlides!: QueryList<ElementRef>;
 
-  coreValues = [
-    {
-      value: 'People',
-      statement: 'Our people are the foundation...',
-      image: '../../../assets/photos/coreValuePeople.jpg',
-    },
-    {
-      value: 'Passion',
-      statement: 'We are inspired by the missions...',
-      image: '../../../assets/photos/coreValuePassion.jpg',
-    },
-    {
-      value: 'Integrity',
-      statement: 'We uphold the highest standards...',
-      image: '../../../assets/photos/coreValueIntegrity.jpg',
-    },
-  ];
+  // coreValues = [
+  //   {
+  //     value: 'People',
+  //     statement: 'Our people are the foundation...',
+  //     image: '../../../assets/photos/coreValuePeople.jpg',
+  //   },
+  //   {
+  //     value: 'Passion',
+  //     statement: 'We are inspired by the missions...',
+  //     image: '../../../assets/photos/coreValuePassion.jpg',
+  //   },
+  //   {
+  //     value: 'Integrity',
+  //     statement: 'We uphold the highest standards...',
+  //     image: '../../../assets/photos/coreValueIntegrity.jpg',
+  //   },
+  // ];
 
-  culture = [
-    {
-      headline: 'We empower those who serve.',
-      statement: 'We take pride in being on the periphery...',
-    },
-    {
-      headline: 'We innovate with purpose.',
-      statement: 'A company of empowered bold thinkers...',
-    },
-    {
-      headline: 'Trust is our foundation.',
-      statement: 'Our commitment to reliability, quality...',
-    },
-    {
-      headline: 'We are a team of families.',
-      statement: 'We actively foster an environment...',
-    },
-  ];
+  // culture = [
+  //   {
+  //     headline: 'We empower those who serve.',
+  //     statement: 'We take pride in being on the periphery...',
+  //   },
+  //   {
+  //     headline: 'We innovate with purpose.',
+  //     statement: 'A company of empowered bold thinkers...',
+  //   },
+  //   {
+  //     headline: 'Trust is our foundation.',
+  //     statement: 'Our commitment to reliability, quality...',
+  //   },
+  //   {
+  //     headline: 'We are a team of families.',
+  //     statement: 'We actively foster an environment...',
+  //   },
+  // ];
 
   partners = [
     { image: '../../../assets/logos/lockheed.jpg' },
@@ -102,7 +102,7 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     this.splitText();
     this.setupGsapAnimations();
-    this.startCultureCarousel();
+    // this.startCultureCarousel();
 
     setTimeout(() => ScrollTrigger.refresh(), 100);
   }
@@ -200,25 +200,25 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     splitWords('mission-paragraph');
   }
 
-  private startCultureCarousel() {
-    gsap.set('.culture-carousel .carousel-slide', { autoAlpha: 0 });
-    this.showSlide(this.cultureIndex);
-    this.intervalId = setInterval(() => {
-      this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
-      this.showSlide(this.cultureIndex);
-    }, 8000);
-  }
+  // private startCultureCarousel() {
+  //   gsap.set('.culture-carousel .carousel-slide', { autoAlpha: 0 });
+  //   this.showSlide(this.cultureIndex);
+  //   this.intervalId = setInterval(() => {
+  //     this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
+  //     this.showSlide(this.cultureIndex);
+  //   }, 8000);
+  // }
 
-  private showSlide(index: number) {
-    gsap.to('.culture-carousel .carousel-slide', {
-      autoAlpha: 0,
-      duration: 0.4,
-      ease: 'power2.out',
-    });
-    gsap.fromTo(
-      `.culture-carousel .carousel-slide[data-index="${index}"]`,
-      { autoAlpha: 0, x: 20 },
-      { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power2.out' }
-    );
-  }
+  // private showSlide(index: number) {
+  //   gsap.to('.culture-carousel .carousel-slide', {
+  //     autoAlpha: 0,
+  //     duration: 0.4,
+  //     ease: 'power2.out',
+  //   });
+  //   gsap.fromTo(
+  //     `.culture-carousel .carousel-slide[data-index="${index}"]`,
+  //     { autoAlpha: 0, x: 20 },
+  //     { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power2.out' }
+  //   );
+  // }
 }
