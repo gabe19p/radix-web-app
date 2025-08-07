@@ -26,6 +26,16 @@
     var(--color-bg-secondary) 0%,
     var(--color-bg) 100%
   );
+  --color-bg-gradient-transparent: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--color-bg) 95%
+  );
+  --color-bg-gradient-transparent-sideways: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0) 0%,
+    var(--color-bg) 95%
+  );
   --color-bg-secondary: #1b1411;
   --color-text: #f1f5f9;
   --color-text-secondary: #c4c4c4;
