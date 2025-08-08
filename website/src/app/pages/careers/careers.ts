@@ -3,6 +3,8 @@ import { CommonModule, DOCUMENT } from '@angular/common';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
+import { DomSanitizer } from '@angular/platform-browser';
+import { SvgList, svgList as rawSvgList } from '../../data/svg.data';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -13,7 +15,23 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   styleUrl: './careers.scss',
 })
 export class Careers implements AfterViewInit {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  svgList: SvgList;
+
+  constructor(
+    private sanitizer: DomSanitizer,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.svgList = Object.fromEntries(
+      Object.entries(rawSvgList).map(([key, value]) => [
+        key,
+        {
+          ...value,
+          id: key,
+          icon: this.sanitizer.bypassSecurityTrustHtml(value.icon),
+        },
+      ])
+    );
+  }
 
   ngAfterViewInit(): void {
     this.splitText();
@@ -47,7 +65,7 @@ export class Careers implements AfterViewInit {
     tl.from('.why-letter', {
       opacity: 0,
       scale: 0.8,
-      delay: 1,
+      delay: 0,
       y: 20,
       stagger: 0.05,
       duration: 0.2,

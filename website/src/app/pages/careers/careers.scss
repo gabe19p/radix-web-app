@@ -1,16 +1,4 @@
-section {
-  padding: var(--spacing-xl) 0;
-}
-
 .careers-hero {
-  // position: relative;
-  // width: 100%;
-  // height: 80vh;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-  // text-align: center;
-
   padding: 0;
   position: absolute;
   top: 0;
@@ -24,7 +12,7 @@ section {
   text-align: center;
 
   .bg-video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -57,8 +45,10 @@ section {
 }
 
 .careers-disciplines {
+  position: relative;
+  z-index: 1;
   background-color: var(--color-text);
-  padding: var(--spacing-xxl) 0;
+  padding: var(--spacing-xl) 0;
   color: var(--color-bg-secondary);
   box-shadow: 0 0 10px black;
 
@@ -116,12 +106,11 @@ section {
 }
 
 .careers-benefits {
-  margin: var(--spacing-xxl) 0;
+  position: relative;
+  z-index: 1;
   display: flex;
 
   .benefits-wrapper {
-    margin-top: var(--spacing-xxl);
-    margin-bottom: var(--spacing-xxl);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -170,8 +159,9 @@ section {
 }
 
 .careers-why {
+  position: relative;
+  z-index: 1;
   padding: var(--spacing-lg) 0;
-  margin: var(--spacing-xxl) auto;
 
   .why-title {
     text-align: center;
@@ -252,8 +242,10 @@ section {
 }
 
 .careers-military {
+  position: relative;
+  z-index: 1;
   background-color: var(--color-text);
-  padding: var(--spacing-xxl) 0;
+  padding: var(--spacing-xl) 0;
   color: var(--color-bg-secondary);
   box-shadow: 0 0 10px black;
 
@@ -272,13 +264,14 @@ section {
     gap: var(--spacing-lg);
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: var(--spacing-sm) 0;
   }
 
   .military-card {
     background: white;
     border-radius: 12px;
     padding: var(--spacing-md);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 0 10px -8px black;
     flex: 1 1 300px;
     text-align: left;
 
@@ -303,6 +296,7 @@ section {
   height: 80vh;
   width: 100%;
   position: relative;
+  z-index: 1;
   display: flex;
 
   .bg-video {
@@ -353,4 +347,79 @@ section {
       }
     }
   }
+}
+
+.benefits {
+  position: relative;
+  z-index: 2;
+
+  .benefits-wrapper {
+    .benefits-title {
+      text-align: center;
+      color: var(--color-text);
+      font-size: var(--font-xxl);
+    }
+
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text);
+
+    .benefit-row {
+      display: flex;
+
+      .benefit-column {
+        flex: 1;
+        display: flex;
+      }
+
+      .outline {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: var(--spacing-lg) 0;
+      }
+
+      // Vertical line on the right
+      .vert-bar::before {
+        content: "";
+        position: absolute;
+        top: 10%;
+        bottom: 10%;
+        right: 0;
+        width: 1px;
+        background-color: var(--color-text);
+      }
+
+      // Horizontal line on the bottom
+      .hor-bar::after {
+        content: "";
+        position: absolute;
+        left: 5%;
+        right: 5%;
+        top: 0;
+        height: 1px;
+        background-color: var(--color-text);
+      }
+    }
+  }
+}
+
+.header {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-left: 5px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: bold;
+  margin: var(--spacing-lg) 0;
+}
+
+.title {
+  text-align: center;
+  color: var(--color-primary);
+  font-family: var(--font-alt);
+  font-size: var(--font-xl);
+  font-weight: var(--font-weight-lg);
+  padding: var(--spacing-xl) 0;
 }
