@@ -1,6 +1,8 @@
 // links to svg repo
 // https://www.svgrepo.com/collection/people-gestures-and-signs-icons/
 // https://www.svgrepo.com/collection/astronomy-and-space-line-vectors/
+// https://www.svgrepo.com/collection/forge-line-interface-icons/
+// https://www.svgrepo.com/collection/solar-broken-line-icons/1
 
 import { SafeHtml } from '@angular/platform-browser';
 
@@ -65,5 +67,51 @@ export const svgList = {
   },
   pto: {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" width="75px" height="75px" viewBox="0 0 64 64" fill="none"><rect x="9.59" y="9.59" width="44.82" height="44.82" rx="2.5" stroke="var(--color-primary)" stroke-width="3"/><line x1="9.59" y1="20.59" x2="54.41" y2="20.59" stroke="var(--color-primary)" stroke-width="3"/><line x1="19.7" y1="9.59" x2="19.7" y2="4.59" stroke="var(--color-primary)" stroke-width="3"/><line x1="43.66" y1="9.59" x2="43.66" y2="4.59" stroke="var(--color-primary)" stroke-width="3"/><rect x="16.14" y="27.92" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/><rect x="28.78" y="27.92" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/><rect x="41.26" y="27.92" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/><rect x="16.36" y="39.68" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/><rect x="29.01" y="39.68" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/><rect x="41.49" y="39.68" width="6.15" height="6.15" stroke="var(--color-primary)" stroke-width="3"/></svg>`,
+  },
+  open: {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 24 24" fill="none">
+        <path d="M21.9999 12C21.9999 16.714 21.9999 19.0711 20.5354 20.5355C19.1784 21.8926 17.055 21.9921 12.9999 21.9994M2.00049 11C2.00779 6.94493 2.10734 4.8215 3.46438 3.46447C4.92884 2 7.28587 2 11.9999 2C16.714 2 19.071 2 20.5354 3.46447C21.5092 4.43821 21.8355 5.80655 21.9448 8" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M3 21L11 13M11 13H5M11 13V19" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `,
+  },
+  act: {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="2" stroke="var(--color-primary)" stroke-width="1.5"/>
+        <path d="M12 10C17 10 16.6 22 9 22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12.3115 14C7.31152 14 7.71152 2 15.3115 2" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M10 12.3115C10 9.53259 13.7068 8.42171 17 9.28791M22 15.3115C22 13.342 21.1941 11.856 20 10.8222" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M14 12C14 14.7789 10.2932 15.8898 7 15.0236M2 9C2 10.6801 2.58643 12.0083 3.5 13.0041" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    `,
+  },
+  cew: {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24" fill="none">
+        <path d="M22 9.07816C22 11.836 20.8836 14.333 19.0782 16.1421M19.1414 2.07816C19.9673 2.9206 20.6453 3.90855 21.1334 5M5 16.2196C3.14864 14.4047 2 11.8756 2 9.07816C2 6.31313 3.12222 3.8102 4.93603 2" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 9.06033C6 7.50471 6.67333 6.09655 7.76162 5.07812M16.2849 5.1221C17.3458 6.13689 18 7.52697 18 9.06033C18 10.6119 17.3302 12.0167 16.2469 13.0345M7.8 13.0781C7.44967 12.7561 7.14127 12.3941 6.88321 12" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="9.07812" r="2" stroke="var(--color-primary)" stroke-width="1.5"/>
+        <path d="M12.5 11L16 22L10.5 15.5M11.5 11L8 22L13.5 15.5" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `,
+  },
+  sc: {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24" fill="none">
+        <path d="M17 6C17 4.11438 17 3.17157 16.4142 2.58579C15.8284 2 14.8856 2 13 2H11C9.11438 2 8.17157 2 7.58579 2.58579C7 3.17157 7 4.11438 7 6" stroke="var(--color-primary)" stroke-width="1.5"/>
+        <path d="M11.1459 11.0225C11.5259 10.3408 11.7159 10 12 10C12.2841 10 12.4741 10.3408 12.8541 11.0225L12.9524 11.1989C13.0603 11.3926 13.1143 11.4894 13.1985 11.5533C13.2827 11.6172 13.3875 11.641 13.5972 11.6884L13.7881 11.7316C14.526 11.8986 14.895 11.982 14.9828 12.2643C15.0706 12.5466 14.819 12.8407 14.316 13.429L14.1858 13.5812C14.0429 13.7483 13.9714 13.8319 13.9392 13.9353C13.9071 14.0387 13.9179 14.1502 13.9395 14.3733L13.9592 14.5763C14.0352 15.3612 14.0733 15.7536 13.8435 15.9281C13.6136 16.1025 13.2682 15.9435 12.5773 15.6254L12.3986 15.5431C12.2022 15.4527 12.1041 15.4075 12 15.4075C11.8959 15.4075 11.7978 15.4527 11.6014 15.5431L11.4227 15.6254C10.7318 15.9435 10.3864 16.1025 10.1565 15.9281C9.92674 15.7536 9.96476 15.3612 10.0408 14.5763L10.0605 14.3733C10.0821 14.1502 10.0929 14.0387 10.0608 13.9353C10.0286 13.8319 9.95713 13.7483 9.81418 13.5812L9.68403 13.429C9.18097 12.8407 8.92945 12.5466 9.01723 12.2643C9.10501 11.982 9.47396 11.8986 10.2119 11.7316L10.4028 11.6884C10.6125 11.641 10.7173 11.6172 10.8015 11.5533C10.8857 11.4894 10.9397 11.3926 11.0476 11.1989L11.1459 11.0225Z" stroke="var(--color-primary)" stroke-width="1.5"/>
+        <path d="M15.5777 20.2111C13.8221 21.089 12.9443 21.5279 12 21.5279C11.0557 21.5279 10.1779 21.089 8.42229 20.2111C6.27063 19.1353 5.19479 18.5974 4.5974 17.6308C4 16.6642 4 15.4614 4 13.0557V12C4 9.17157 4 7.75736 4.87868 6.87868C5.75736 6 7.17157 6 10 6H14C16.8284 6 18.2426 6 19.1213 6.87868C20 7.75736 20 9.17157 20 12V13.0557C20 15.4614 20 16.6642 19.4026 17.6308C19.2876 17.8169 19.1548 17.9872 19 18.1484" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    `,
+  },
+  dso: {
+    icon: `
+      <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24" fill="none">
+        <path d="M7.52879 16.4712C2.59014 11.5325 0.588351 5.52715 3.05768 3.05782C5.04852 1.06697 9.33779 1.98237 13.5134 5M16.471 7.52894C21.4097 12.4676 23.4115 18.473 20.9421 20.9423C18.9535 22.931 14.6713 22.0198 10.5 19.01M20.9423 3.05768C23.4117 5.52701 21.4099 11.5324 16.4712 16.4711C11.5326 21.4097 5.5272 23.4115 3.05787 20.9422C1.06704 18.9513 1.98242 14.6621 5 10.4865C5.72528 9.48285 6.57199 8.4858 7.52899 7.5288C12.4676 2.59014 18.473 0.588345 20.9423 3.05768Z" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5C13.3807 9.5 14.5 10.6193 14.5 12Z" stroke="var(--color-primary)" stroke-width="1.5"/>
+      </svg>
+    `,
   },
 };

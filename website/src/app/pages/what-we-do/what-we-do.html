@@ -1,6 +1,6 @@
 <section class="what-we-do-hero">
   <video autoplay muted loop playsinline class="bg-video">
-    <source src="../../../assets/videos/wwd(black).mp4" type="video/mp4" />
+    <source src="../../../assets/videos/act.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
@@ -14,7 +14,7 @@
 
 <!-- Spacer to push next section down -->
 <div style="height: 100vh; background-color: transparent !important"></div>
-
+<!--
 <section class="what-we-do-capabilities">
   <div class="capabilities-wrapper container-md raised">
     <h1 class="capabilities-title">Core Capabilities</h1>
@@ -26,6 +26,72 @@
       >
         <div class="sphere" [innerHTML]="cap.icon"></div>
         <h2 class="title">{{ cap.title }}</h2>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="capabilities">
+  <div class="capabilities-wrapper container-md">
+    <div class="title">CORE CAPABILITIES</div>
+    <div class="capes-row">
+      <div class="capes-column">
+        <div class="outline vert-bar">
+          <div
+            class="svg"
+            [innerHTML]="svgList['sc'].icon"
+            (click)="openCap('sc')"
+          ></div>
+          <h2 (click)="openCap('sc')">SATISFACTION & CREDIBILITY</h2>
+          <div class="read-more" (click)="openCap('sc')">
+            <div href="">Learn more</div>
+            <div class="open" [innerHTML]="svgList['open'].icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="capes-column">
+        <div class="outline">
+          <div
+            class="svg"
+            [innerHTML]="svgList['cew'].icon"
+            (click)="openCap('cew')"
+          ></div>
+          <h2 (click)="openCap('cew')">CUSTOMIZABLE ELECTRONIC WARFARE</h2>
+          <div class="read-more" (click)="openCap('cew')">
+            <div href="">Learn more</div>
+            <div class="open" [innerHTML]="svgList['open'].icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="capes-row">
+      <div class="capes-column">
+        <div class="outline vert-bar hor-bar">
+          <div
+            class="svg"
+            [innerHTML]="svgList['dso'].icon"
+            (click)="openCap('dso')"
+          ></div>
+          <h2 (click)="openCap('dso')">DYNAMIC SPACE ORCHESTRATION</h2>
+          <div class="read-more" (click)="openCap('dso')">
+            <div href="">Learn more</div>
+            <div class="open" [innerHTML]="svgList['open'].icon"></div>
+          </div>
+        </div>
+      </div>
+      <div class="capes-column">
+        <div class="outline hor-bar">
+          <div
+            class="svg"
+            [innerHTML]="svgList['act'].icon"
+            (click)="openCap('act')"
+          ></div>
+          <h2 (click)="openCap('act')">ADVANCED CUSTODY & TRACKING</h2>
+          <div class="read-more" (click)="openCap('act')">
+            <div href="">Learn more</div>
+            <div class="open" [innerHTML]="svgList['open'].icon"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
