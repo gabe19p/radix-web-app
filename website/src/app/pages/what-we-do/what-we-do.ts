@@ -17,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './what-we-do.scss',
 })
 export class WhatWeDo {
-  capabilities: Capability[];
   svgList: SvgList;
   constructor(private sanitizer: DomSanitizer, private router: Router) {
     this.svgList = Object.fromEntries(
@@ -30,10 +29,6 @@ export class WhatWeDo {
         },
       ])
     );
-    this.capabilities = capabilities.map((cap) => ({
-      ...cap,
-      icon: this.sanitizer.bypassSecurityTrustHtml(cap.icon),
-    }));
   }
 
   openCap(id: string): void {
