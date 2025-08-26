@@ -1,19 +1,19 @@
 <div class="nav-wrapper">
   <a
     class="nav-link"
-    routerLink="/who-we-are"
+    (click)="scrollToTop('/who-we-are')"
     [ngClass]="{'active': currentRoute === '/who-we-are'}"
     >Who We Are</a
   >
   <a
     class="nav-link"
-    routerLink="/what-we-do"
+    (click)="scrollToTop('/what-we-do')"
     [ngClass]="{'active': currentRoute === '/what-we-do'}"
     >What We Do</a
   >
   <a
     class="nav-link"
-    routerLink="/careers"
+    (click)="scrollToTop('/careers')"
     [ngClass]="{'active': currentRoute === '/careers'}"
     >Careers</a
   >

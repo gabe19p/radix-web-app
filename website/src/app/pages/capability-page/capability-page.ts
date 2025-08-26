@@ -26,7 +26,4 @@ export class CapabilityPage implements OnInit {
       window.scrollTo({ top: 1100, behavior: 'smooth' });
     });
   }
-  // goBack(): void {
-  //   this.router.navigate(['/what-we-do'], { fragment: 'capabilitiesTop' });
-  // }
 }

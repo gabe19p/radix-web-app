@@ -42,47 +42,6 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     );
   }
 
-  @ViewChildren('partnerEl') partnerEls!: QueryList<ElementRef>;
-  @ViewChildren('cultureSlide', { read: ElementRef })
-  cultureSlides!: QueryList<ElementRef>;
-
-  // coreValues = [
-  //   {
-  //     value: 'People',
-  //     statement: 'Our people are the foundation...',
-  //     image: '../../../assets/photos/coreValuePeople.jpg',
-  //   },
-  //   {
-  //     value: 'Passion',
-  //     statement: 'We are inspired by the missions...',
-  //     image: '../../../assets/photos/coreValuePassion.jpg',
-  //   },
-  //   {
-  //     value: 'Integrity',
-  //     statement: 'We uphold the highest standards...',
-  //     image: '../../../assets/photos/coreValueIntegrity.jpg',
-  //   },
-  // ];
-
-  // culture = [
-  //   {
-  //     headline: 'We empower those who serve.',
-  //     statement: 'We take pride in being on the periphery...',
-  //   },
-  //   {
-  //     headline: 'We innovate with purpose.',
-  //     statement: 'A company of empowered bold thinkers...',
-  //   },
-  //   {
-  //     headline: 'Trust is our foundation.',
-  //     statement: 'Our commitment to reliability, quality...',
-  //   },
-  //   {
-  //     headline: 'We are a team of families.',
-  //     statement: 'We actively foster an environment...',
-  //   },
-  // ];
-
   partners = [
     { image: '../../../assets/logos/lockheed.jpg' },
     { image: '../../../assets/logos/amazon.png' },
@@ -96,69 +55,42 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     { image: '../../../assets/logos/google.png' },
   ];
 
-  cultureIndex = 0;
-  intervalId: any;
-
-  ngAfterViewInit() {
-    this.splitText();
-    this.setupGsapAnimations();
-    // this.startCultureCarousel();
-
-    setTimeout(() => ScrollTrigger.refresh(), 100);
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.splitText();
+      this.setupGsapAnimations();
+    }, 100); // Slight delay ensures DOM/layout stability
   }
 
-  ngOnDestroy() {
-    clearInterval(this.intervalId);
+  ngOnDestroy(): void {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   }
 
   private setupGsapAnimations() {
-    gsap
-      .timeline({
-        scrollTrigger: { trigger: '#heroText', start: 'top center' },
-      })
-      // .from('.hero-letter', {
-      //   opacity: 0,
-      //   scale: 0.8,
-      //   delay: 1,
-      //   y: 20,
-      //   stagger: 0.05,
-      //   duration: 0.6,
-      //   ease: 'power2.out',
-      // });
-      .from('.hero-title', {
-        opacity: 0,
-        scale: 0.8,
-        delay: 1,
-        y: 20,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
+    // const missionTl = gsap.timeline({
+    //   scrollTrigger: { trigger: '#mission', start: 'top 75%' },
+    // });
 
-    const missionTl = gsap.timeline({
-      scrollTrigger: { trigger: '#mission', start: 'top 75%' },
-    });
-
-    missionTl
-      .from('.letter', {
-        opacity: 0,
-        scale: 0.5,
-        y: -20,
-        stagger: 0.03,
-        duration: 1,
-        ease: 'back.out(1.7)',
-      })
-      .from(
-        '.word',
-        {
-          y: 30,
-          opacity: 0,
-          stagger: 0.05,
-          duration: 1.5,
-          ease: 'power2.out',
-        },
-        '<'
-      );
+    // missionTl
+    //   .from('.letter', {
+    //     opacity: 0,
+    //     scale: 0.5,
+    //     y: -20,
+    //     stagger: 0.03,
+    //     duration: 1,
+    //     ease: 'back.out(1.7)',
+    //   })
+    //   .from(
+    //     '.word',
+    //     {
+    //       y: 30,
+    //       opacity: 0,
+    //       stagger: 0.05,
+    //       duration: 1.5,
+    //       ease: 'power2.out',
+    //     },
+    //     '<'
+    //   );
 
     gsap.from('.partner', {
       scrollTrigger: {
@@ -199,26 +131,4 @@ export class WhoWeAre implements AfterViewInit, OnDestroy {
     split('mission', 'letter');
     splitWords('mission-paragraph');
   }
-
-  // private startCultureCarousel() {
-  //   gsap.set('.culture-carousel .carousel-slide', { autoAlpha: 0 });
-  //   this.showSlide(this.cultureIndex);
-  //   this.intervalId = setInterval(() => {
-  //     this.cultureIndex = (this.cultureIndex + 1) % this.culture.length;
-  //     this.showSlide(this.cultureIndex);
-  //   }, 8000);
-  // }
-
-  // private showSlide(index: number) {
-  //   gsap.to('.culture-carousel .carousel-slide', {
-  //     autoAlpha: 0,
-  //     duration: 0.4,
-  //     ease: 'power2.out',
-  //   });
-  //   gsap.fromTo(
-  //     `.culture-carousel .carousel-slide[data-index="${index}"]`,
-  //     { autoAlpha: 0, x: 20 },
-  //     { autoAlpha: 1, x: 0, duration: 0.8, ease: 'power2.out' }
-  //   );
-  // }
 }

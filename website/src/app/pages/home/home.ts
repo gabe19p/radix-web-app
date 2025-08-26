@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SvgList, svgList as rawSvgList } from '../../data/svg.data';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 export class Home {
   svgList: SvgList;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private router: Router) {
     this.svgList = Object.fromEntries(
       Object.entries(rawSvgList).map(([key, value]) => [
         key,
@@ -26,5 +26,11 @@ export class Home {
         },
       ])
     );
+  }
+
+  scrollToTop(link: string): void {
+    this.router.navigate([link]).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 }

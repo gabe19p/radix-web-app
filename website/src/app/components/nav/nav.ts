@@ -17,4 +17,10 @@ export class Nav {
       this.currentRoute = this.router.url;
     });
   }
+
+  scrollToTop(link: string): void {
+    this.router.navigate([link]).then(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 }
